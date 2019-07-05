@@ -3,8 +3,9 @@ import { Segment, Header, Grid, GridRow, GridColumn } from 'semantic-ui-react';
 
 class KunciComponent extends Component {
     render() {
-        return (
-            
+        const showKunci = this.props.showKunci;
+        if(showKunci){
+            return (            
                 <Segment.Group id='Kunci'>
                     <Segment>
                         <Header as='h2' textAlign='center'>Kunci</Header>
@@ -34,9 +35,14 @@ class KunciComponent extends Component {
                             </GridRow>
                         </Grid>
                     </Segment>
-                </Segment.Group>                
-            
-        );
+                </Segment.Group>                            
+            );
+        } else {
+            return (
+                <div></div>
+            );
+        }
+        
     }
 }
 

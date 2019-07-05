@@ -10,7 +10,8 @@ import ToggleKunci from './toggleKunci';
 class Quiz extends React.Component {
   state = {
     jumSoalModal : false,
-    jumSoal: 10  
+    jumSoal: 10,
+    showKunci: false  
   }  
   
   bukaJumSoal = () => this.setState({jumSoalModal: true});
@@ -19,6 +20,10 @@ class Quiz extends React.Component {
     this.setState({jumSoal: value});
     this.tutupJumSoal();
   };
+  handleToggleKunci = () => {
+    const nextKunci = !this.state.showKunci;
+    this.setState({showKunci: nextKunci});
+  }
     render() {    
       return(
         <div>
@@ -72,8 +77,13 @@ class Quiz extends React.Component {
                   </Grid>
                 </Segment>
               </Segment.Group>
-              <ToggleKunci />
-              <KunciComponent />                
+              <ToggleKunci 
+                showKunci={this.state.showKunci}
+                onClick={this.handleToggleKunci}
+              />
+              <KunciComponent 
+                showKunci={this.state.showKunci}
+              />                
             </Grid.Column>
             <Grid.Column width={5}>
               <ActionComponent />
