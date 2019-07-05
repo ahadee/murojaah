@@ -6,16 +6,18 @@ class SoalComponent extends Component {
         this.props.bukaJumSoal();
     };
     render() {
-        const jumSoal = this.props.jumSoal
+        const jumSoal = this.props.jumSoal;
+        const currentSoal = this.props.currentSoal;
+        const soalAyat=this.props.soalAyat;              
         return (
             <Segment.Group id="soal">                
                 <Header as="h2" attached="top" textAlign='center'>Soal</Header>                
                 <Segment attached id="soal-content">
                     <div>
-                        <Header as="h3" textAlign='center'>2/{jumSoal}</Header>
+                        <Header as="h3" textAlign='center'>{currentSoal}/{jumSoal}</Header>
                         <Button size='mini' primary id="rubahSoal" onClick={this.bukaJumSoal}>rubah jumlah soal</Button>
                     </div>
-                    <Progress color="green" value='2' total={jumSoal} progress='ratio' label="Progress"></Progress>
+                    <Progress color="green" value='{currentSoal}' total={jumSoal} progress='ratio' label="Progress"></Progress>
                 </Segment>
                 <ButtonGroup attached>
                     <Button content='Sebelumnya' icon='left arrow' labelPosition='left' />
@@ -32,10 +34,10 @@ class SoalComponent extends Component {
                 <Segment attached>
                     <Grid stackable textAlign='center'>
                         <GridRow>
-                            <GridColumn width={5}><p><b className='text'>Al-Mulk [67]</b></p></GridColumn>
-                            <GridColumn width={3}><p>ayat <b className=" text">6</b></p></GridColumn>
-                            <GridColumn width={5}><p>Jumlah Ayat <b className=" text">30</b></p></GridColumn>
-                            <GridColumn width={3}><p><b className=" text">Makkiyah</b></p></GridColumn>
+                            <GridColumn width={5}><p><b className='text'>{soalAyat.Nama} [{soalAyat.noSurat}]</b></p></GridColumn>
+                            <GridColumn width={3}><p>ayat <b className=" text">{soalAyat.ayat}</b></p></GridColumn>
+                            <GridColumn width={5}><p>Jumlah Ayat <b className=" text">{soalAyat.jumAyat}</b></p></GridColumn>
+                            <GridColumn width={3}><p><b className=" text">{soalAyat.turun}</b></p></GridColumn>
                         </GridRow>
                     </Grid>
                 </Segment>
@@ -45,10 +47,10 @@ class SoalComponent extends Component {
                             <GridColumn width={5}><p className='huge text'><b>Pertanyaan</b></p></GridColumn>
                             <GridColumn width={11} className='borderLeft'>
                                 <GridRow>
-                                    <GridColumn><p className='super text arabic'><b>وَأَنزَلۡنَا مِنَ ٱلۡمُعۡصِرَٰتِ مَآءٗ ثَجَّاجٗا</b></p></GridColumn>
+                                    <GridColumn><p className='super text arabic'><b>{soalAyat.bacaan}</b></p></GridColumn>
                                 </GridRow>
                                 <GridRow>
-                                <   GridColumn><p className='text'>14.  dan Kami turunkan dari awan air yang banyak tercurah,</p></GridColumn>
+                                <   GridColumn><p className='text'>{soalAyat.tafsir}</p></GridColumn>
                                 </GridRow>
                             </GridColumn>
                         </GridRow>

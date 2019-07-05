@@ -13,7 +13,7 @@ class ActionComponent extends Component {
                             </GridColumn>
                         </GridRow>
                         <GridRow>
-                            <GridColumn width={8}><Button>Acak Soal</Button></GridColumn>
+                            <GridColumn width={8}><Button onClick={this.props.onAcak}>Acak Soal</Button></GridColumn>
                             <GridColumn width={8}><Button>Reset Soal</Button></GridColumn>
                         </GridRow>
                     </Grid>

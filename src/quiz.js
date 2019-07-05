@@ -26,15 +26,17 @@ class Quiz extends React.Component {
     const nextKunci = !this.state.showKunci;
     this.setState({showKunci: nextKunci});
   }
-    render() {    
+    render() {
       return(
         <div>
         <Container id="allContainer">
           <Grid>
             <Grid.Column width={11}>
               <SoalComponent 
+                currentSoal ={this.state.currentSoal}
                 jumSoal = {this.state.jumSoal}              
                 bukaJumSoal ={this.bukaJumSoal}
+                soalAyat={this.props.soalAyat}
               />
               <ToggleKunci 
                 showKunci={this.state.showKunci}
@@ -42,10 +44,13 @@ class Quiz extends React.Component {
               />
               <KunciComponent 
                 showKunci={this.state.showKunci}
+                kunciAyat={this.props.kunciAyat}
               />                
             </Grid.Column>
             <Grid.Column width={5}>
-              <ActionComponent />
+              <ActionComponent 
+                onAcak={this.props.onAcak}
+              />
               <Waktu />
               <SkorComponent />
             </Grid.Column>
