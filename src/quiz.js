@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Grid, Header, Segment, Button, Progress, ButtonGroup, GridRow, GridColumn, Radio, Modal, Form, Message, Divider } from 'semantic-ui-react'
+import JumSoalForm from "./jum-soal-form";
 
 class Quiz extends React.Component {
   state = {
@@ -10,9 +11,7 @@ class Quiz extends React.Component {
   
   bukaJumSoal = () => this.setState({jumSoalModal: true});
   tutupJumSoal = () => this.setState({jumSoalModal: false});
-  submitJumSoal = () => {
-    var value = this.state.inputJumSoal.current.value;
-    console.log('is integer ' + Number(value));
+  handleSubmitJumSoal = (value) => {    
     this.setState({jumSoal: value});
     this.tutupJumSoal();
   };
@@ -164,45 +163,12 @@ class Quiz extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
-        <Modal open = {this.state.jumSoalModal} size="mini"  onClose={this.tutupJumSoal}>          
-          <Modal.Header>Jumlah Soal</Modal.Header>
-          <Modal.Content>
-            <Form onSubmit={this.submitJumSoal}>
-              <Form.Field>
-                <label>Masukkan jumlah soal</label>
-                <input 
-                  id="inputJumSoal" 
-                  ref={this.state.inputJumSoal} 
-                  name="inputJumSoal" 
-                  placeholder="jumlah soal" 
-                  defaultValue={this.state.jumSoal}
-                  type="number"
-                  min='1'
-                >
-                  
-                </input>
-              
-              </Form.Field>
-                            
-              <Message
-                error                
-                content='Masukkan jumlah soal dengan benar'
-              />
-            </Form>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button onClick={this.tutupJumSoal} negative>
-              Cancel
-            </Button>
-            <Button              
-              positive
-              labelPosition='right'
-              icon='checkmark'
-              content='Submit'
-              onClick={this.submitJumSoal}
-            />
-          </Modal.Actions>
-        </Modal>
+        <JumSoalForm 
+          jumSoalModal={this.state.jumSoalModal}
+          jumSoal={this.state.jumSoal} 
+          onTutupModal={this.tutupJumSoal}
+          onSubmitModal={this.handleSubmitJumSoal}
+        />
         </div>
       );
     };

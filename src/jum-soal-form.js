@@ -2,28 +2,25 @@ import React, { Component } from 'react';
 import { Modal, Message, Form, Button } from "semantic-ui-react";
 
 class JumSoalForm extends Component {
-    state = {
-        jumSoalModal: this.props.jumSoalModal,
-        jumSoal: this.props.jumSoal,
-        inputJumSoal: React.createRef(),
-        tutupJumSoal: this.props.tutupJumSoal    
-    };
-
-    static getDerivedStateFromProps(nextProps) {
-        return {jumSoalModal: nextProps.jumSoalModal}
+    state = {                
+        inputJumSoal: React.createRef()        
+    };   
+    tutupJumSoal = () => {
+        this.props.onTutupModal();
     }
-    //bukaJumSoal = () => this.setState({jumSoalModal: true});
-    //tutupJumSoal = () => this.setState({jumSoalModal: false});
     submitJumSoal = () => {
         var value = this.state.inputJumSoal.current.value;
         console.log('is integer ' + Number(value));
-        this.setState({jumSoal: value});
-        this.props.onTutupmodal();
+        this.props.onSubmitModal(value)
+        //this.setState({jumSoal: value});
+        //this.props.onTutupmodal();
       };
     render() {
+        const jumSoalModal = this.props.jumSoalModal;
+        const jumSoal= this.props.jumSoal
         return (
             <div>
-                <Modal open = {this.state.jumSoalModal} size="mini"  onClose={this.state.tutupJumSoal}>          
+                <Modal open = {jumSoalModal} size="mini"  onClose={this.tutupJumSoal}>          
                     <Modal.Header>Jumlah Soal</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.submitJumSoal}>
@@ -34,7 +31,7 @@ class JumSoalForm extends Component {
                             ref={this.state.inputJumSoal} 
                             name="inputJumSoal" 
                             placeholder="jumlah soal" 
-                            defaultValue={this.state.jumSoal}
+                            defaultValue= {jumSoal}
                             type="number"
                             min='1'
                             >
@@ -50,7 +47,7 @@ class JumSoalForm extends Component {
                         </Form>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button onClick={this.state.tutupJumSoal} negative>
+                        <Button onClick={this.tutupJumSoal} negative>
                         Cancel
                         </Button>
                         <Button              
