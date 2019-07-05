@@ -1,8 +1,8 @@
-
+﻿
 @import url('https://fonts.googleapis.com/css?family=Scheherazade:700&display=swap');
 
-#allContainer {
-    margin-top: 1rem;
+body > .ui.container {
+    margin-top: 2em;
 }
 #soal-content .button{
     position: absolute;
@@ -52,7 +52,7 @@
     direction: rtl;
     font-family: 'Scheherazade', serif;
 }
-.column.borderLeft{
+.column.arabic{
     border-left: 1px solid rgba(34,36,38,.15)
 }
 #skor .segment .header{

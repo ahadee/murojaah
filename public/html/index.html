@@ -1,0 +1,210 @@
+﻿<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar">
+
+<head>
+  <title>Untitled</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="semantic/semantic.min.js"></script>
+  <script src="js/scripts.js"></script>
+</head>
+
+<body>
+    <div class="ui container">
+        <div class="ui grid">
+            <div class="eleven wide column">
+                <div class="ui segments container" id="soal">
+                    <h2 class="ui center top attached aligned header">
+                        Soal
+                    </h2>
+                    <div class="ui attached segment" id="soal-content">
+                        <div class="ui content">
+                            <h3 class="ui center aligned header">
+                                20 / 50
+                            </h3>
+                            <button class="mini ui primary button" id="rubahSoal">Rubah Jumlah Soal</button>
+                        </div>
+                        <div class="ui green progress" data-value="20" data-total="50" id="progressSoal">
+                            <div class="bar">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="label">Progress</div>
+                        </div>
+                    </div>
+                    <div class="ui two attached buttons">
+
+                            <button class="ui left labeled icon button">
+                                <i class="left arrow icon"></i>
+                                Sebelumnya
+                            </button>
+                            <button class="ui right labeled icon button">
+                                <i class="right arrow icon"></i>
+                                Selanjutnya
+                            </button>
+                    </div>
+                    <div class="ui top attached horizontal segments">
+                        <div class="ui red inverted attached segment">
+                            <h3 class="ui center aligned header">
+                                JUZZ 30
+                            </h3>
+                        </div>
+                        <div class=" ui segment attached" style="width: 200%">
+                            <h3 class="ui grey center aligned header">564 Ayat</h3>
+                            <!--<div class="ui form">
+                                <div class="field">
+                                    <select>
+                                        <option>67 Al-Mulk</option>
+                                        <option>67 Al-Mulk</option>
+                                        <option>67 Al-Mulk</option>
+                                        <option>67 Al-Mulk</option>
+                                    </select>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="two column stackable ui grid center aligned">
+                            <div class="row">
+                                <div class="five wide column"><p><b class=" text">Al-Mulk [67]</b></p></div>
+                                <div class="three wide column"><p>ayat <b class=" text">6</b></p></div>
+                                <div class="five wide column"><p>Jumlah Ayat <b class=" text">30</b></p></div>
+                                <div class="three wide column"><p><b class=" text">Makkiyah</b></p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui middle aligned grid two column">
+                            <div class="row">
+                                <div class="five wide column">
+                                    <p class="huge text">Pertanyaan</p>
+                                </div>
+                                <div class="eleven wide column arabic">
+                                    <p class="super text"><b>وَأَنزَلۡنَا مِنَ ٱلۡمُعۡصِرَٰتِ مَآءٗ ثَجَّاجٗا</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--
+<div class="ui segments container" id="Pertanyaan"></div>
+-->
+                <div class="ui grid">
+                    <div class="row">
+                        <div class="six wide right floated column right aligned">
+                            <div class="inline field">
+                                <div class="ui toggle checkbox">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>Tampilkan Kunci</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui segments container" id="Kunci">
+                    <div class="ui segment">
+                        <h2 class="ui center aligned header">
+                            Kunci
+                        </h2>
+                    </div>
+                    <div class="ui segment">
+                        <div class="two column stackable ui grid center aligned">
+                            <div class="row">
+                                <div class="five wide column"><p><b class=" text">Al-Mulk [67]</b></p></div>
+                                <div class="three wide column"><p>ayat <b class=" text">6</b></p></div>
+                                <div class="five wide column"><p>Jumlah Ayat <b class=" text">30</b></p></div>
+                                <div class="three wide column"><p><b class=" text">Makkiyah</b></p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui middle aligned grid two column">
+                            <div class="row">
+                                <div class="five wide column">
+                                    <p class="huge text">Ayat Selanjutnya</p>
+                                </div>
+                                <div class="eleven wide column arabic">
+                                    <p class="super text"><b>وَأَنزَلۡنَا مِنَ ٱلۡمُعۡصِرَٰتِ مَآءٗ ثَجَّاجٗا</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <div class="ui segment center aligned">
+                    <div class="ui stackable grid">
+                        <div class="row">
+                            <div class="ui column"><button class="ui button">MUROJA'AH<br>URUT</button></div>
+                        </div>
+                        <div class="row">
+                        <div class="ui eight wide center aligned column"><button class="ui button">Acak Soal</button></div>
+                        <div class="ui eight wide center aligned column"><button class="ui button">Reset Soal</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui segments" id="waktu">
+                    <h3 class="ui header top attached center aligned">Waktu</h3>
+                    <div class="ui segment green inverted attached">
+                        <h2 class="ui header center aligned">00.00.00</h2>
+                    </div>
+                    <div class="ui segment attached center aligned">
+                        <div class="ui stackable grid">
+                            <div class="row">
+                            <div class="ui eight wide center aligned column"><button class="ui button">Mulai</button></div>
+                            <div class="ui eight wide center aligned column"><button class="ui button">Stop</button></div>
+                            </div>
+                            <div class="row">
+                                <div class="ui column center align"><button class="ui button">Reset Waktu</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui segments" id="skor">
+                    <div class="ui horizontal segments">
+                        <div class="ui center aligned segment">
+                            <h3 class="ui header violet" >Benar</h3>
+                            <div class="ui fitted divider"></div>
+                            <h3 class="ui header violet" >0</h3>
+                            <button class="ui button violet">Benar</button>
+                        </div>
+                        <div class="ui center aligned segment">
+                            <h3 class="ui header red" >Salah</h3>
+                            <div class="ui fitted divider"></div>
+                            <h3 class="ui header red" >0</h3>
+                            <button class="ui button red">Salah</button>
+                        </div>
+                    </div>
+                    <div class="ui center aligned clearing segment">
+                        <h3 class="ui header" >SKOR</h3>
+                        <div class="ui fitted divider"></div>
+                        <h2 class="ui header" >0.00</h2>
+                        <button class="ui left floated button">Daftar Nilai</button>
+                        <button class="ui right floated button">Rekam Nilai</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="ui mini form modal" id="formRubahSoal">
+        <div class="header">Jumlah Soal</div>
+        <div class="content">
+            <div class="field">
+            <label>Masukkan jumlah soal</label>
+            <input id="inputSoal" type="number" placeholder="jumlah soal">
+            </div>
+            <div class="ui error message">
+                <p>Masukkan jumlah soal dengan benar</p>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="ui button" type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

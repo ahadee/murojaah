@@ -1,0 +1,434 @@
+[
+ {
+   "noSurat": 67,
+   "Nama": "Al-Mulk",
+   "turun": "Makkiyah",
+   "jumAyat": 30,
+   "awalAyat": 1,
+   "akhirAyat": 30,
+   "Juz": 29
+ },
+ {
+   "noSurat": 68,
+   "Nama": "Al-Qolam",
+   "turun": "Makkiyah",
+   "jumAyat": 52,
+   "awalAyat": 31,
+   "akhirAyat": 82,
+   "Juz": 29
+ },
+ {
+   "noSurat": 69,
+   "Nama": "Al-Haqqoh",
+   "turun": "Makkiyah",
+   "jumAyat": 52,
+   "awalAyat": 83,
+   "akhirAyat": 134,
+   "Juz": 29
+ },
+ {
+   "noSurat": 70,
+   "Nama": "Al-Ma'arij",
+   "turun": "Makkiyah",
+   "jumAyat": 44,
+   "awalAyat": 135,
+   "akhirAyat": 178,
+   "Juz": 29
+ },
+ {
+   "noSurat": 71,
+   "Nama": "Nuh",
+   "turun": "Makkiyah",
+   "jumAyat": 28,
+   "awalAyat": 179,
+   "akhirAyat": 206,
+   "Juz": 29
+ },
+ {
+   "noSurat": 72,
+   "Nama": "Al-Jin",
+   "turun": "Makkiyah",
+   "jumAyat": 28,
+   "awalAyat": 207,
+   "akhirAyat": 234,
+   "Juz": 29
+ },
+ {
+   "noSurat": 73,
+   "Nama": "Al-Muzzammil",
+   "turun": "Makkiyah",
+   "jumAyat": 20,
+   "awalAyat": 235,
+   "akhirAyat": 254,
+   "Juz": 29
+ },
+ {
+   "noSurat": 74,
+   "Nama": "Al-Muddatstsir",
+   "turun": "Makkiyah",
+   "jumAyat": 56,
+   "awalAyat": 255,
+   "akhirAyat": 310,
+   "Juz": 29
+ },
+ {
+   "noSurat": 75,
+   "Nama": "Al-Qiyamah",
+   "turun": "Makkiyah",
+   "jumAyat": 40,
+   "awalAyat": 311,
+   "akhirAyat": 350,
+   "Juz": 29
+ },
+ {
+   "noSurat": 76,
+   "Nama": "Al-Insan",
+   "turun": "Madaniyah",
+   "jumAyat": 31,
+   "awalAyat": 351,
+   "akhirAyat": 381,
+   "Juz": 29
+ },
+ {
+   "noSurat": 77,
+   "Nama": "Al-Mursalat",
+   "turun": "Makkiyah",
+   "jumAyat": 50,
+   "awalAyat": 382,
+   "akhirAyat": 431,
+   "Juz": 29
+ },
+ {
+   "noSurat": 78,
+   "Nama": " An-Nabaa' ",
+   "turun": "Makkiyah",
+   "jumAyat": 40,
+   "awalAyat": 1,
+   "akhirAyat": 40,
+   "Juz": 30
+ },
+ {
+   "noSurat": 79,
+   "Nama": " An-Naazi'at ",
+   "turun": "Makkiyah",
+   "jumAyat": 46,
+   "awalAyat": 41,
+   "akhirAyat": 86,
+   "Juz": 30
+ },
+ {
+   "noSurat": 80,
+   "Nama": " 'Abasa ",
+   "turun": "Makkiyah",
+   "jumAyat": 42,
+   "awalAyat": 87,
+   "akhirAyat": 128,
+   "Juz": 30
+ },
+ {
+   "noSurat": 81,
+   "Nama": " At-Takwir ",
+   "turun": "Makkiyah",
+   "jumAyat": 29,
+   "awalAyat": 129,
+   "akhirAyat": 157,
+   "Juz": 30
+ },
+ {
+   "noSurat": 82,
+   "Nama": " Al-Infithor ",
+   "turun": "Makkiyah",
+   "jumAyat": 19,
+   "awalAyat": 158,
+   "akhirAyat": 176,
+   "Juz": 30
+ },
+ {
+   "noSurat": 83,
+   "Nama": " Al-Muthoffifiin ",
+   "turun": "Makkiyah",
+   "jumAyat": 36,
+   "awalAyat": 177,
+   "akhirAyat": 212,
+   "Juz": 30
+ },
+ {
+   "noSurat": 84,
+   "Nama": " Al-Insyiqoq ",
+   "turun": "Makkiyah",
+   "jumAyat": 25,
+   "awalAyat": 213,
+   "akhirAyat": 237,
+   "Juz": 30
+ },
+ {
+   "noSurat": 85,
+   "Nama": " Al-Buruuj ",
+   "turun": "Makkiyah",
+   "jumAyat": 22,
+   "awalAyat": 238,
+   "akhirAyat": 259,
+   "Juz": 30
+ },
+ {
+   "noSurat": 86,
+   "Nama": " At-Thooriq ",
+   "turun": "Makkiyah",
+   "jumAyat": 17,
+   "awalAyat": 260,
+   "akhirAyat": 276,
+   "Juz": 30
+ },
+ {
+   "noSurat": 87,
+   "Nama": " Al-A'la ",
+   "turun": "Makkiyah",
+   "jumAyat": 19,
+   "awalAyat": 277,
+   "akhirAyat": 295,
+   "Juz": 30
+ },
+ {
+   "noSurat": 88,
+   "Nama": " Al-Ghosyiyah ",
+   "turun": "Makkiyah",
+   "jumAyat": 26,
+   "awalAyat": 296,
+   "akhirAyat": 321,
+   "Juz": 30
+ },
+ {
+   "noSurat": 89,
+   "Nama": " Al-Fajr ",
+   "turun": "Makkiyah",
+   "jumAyat": 30,
+   "awalAyat": 322,
+   "akhirAyat": 351,
+   "Juz": 30
+ },
+ {
+   "noSurat": 90,
+   "Nama": " Al-Balad ",
+   "turun": "Makkiyah",
+   "jumAyat": 20,
+   "awalAyat": 352,
+   "akhirAyat": 371,
+   "Juz": 30
+ },
+ {
+   "noSurat": 91,
+   "Nama": " Asy-Syams ",
+   "turun": "Makkiyah",
+   "jumAyat": 15,
+   "awalAyat": 372,
+   "akhirAyat": 386,
+   "Juz": 30
+ },
+ {
+   "noSurat": 92,
+   "Nama": " Al-Layl ",
+   "turun": "Makkiyah",
+   "jumAyat": 21,
+   "awalAyat": 387,
+   "akhirAyat": 407,
+   "Juz": 30
+ },
+ {
+   "noSurat": 93,
+   "Nama": " Adh-Dhuhaa ",
+   "turun": "Makkiyah",
+   "jumAyat": 11,
+   "awalAyat": 408,
+   "akhirAyat": 418,
+   "Juz": 30
+ },
+ {
+   "noSurat": 94,
+   "Nama": " Al-Insyiroh ",
+   "turun": "Makkiyah",
+   "jumAyat": 8,
+   "awalAyat": 419,
+   "akhirAyat": 426,
+   "Juz": 30
+ },
+ {
+   "noSurat": 95,
+   "Nama": " At-Tiin ",
+   "turun": "Makkiyah",
+   "jumAyat": 8,
+   "awalAyat": 427,
+   "akhirAyat": 434,
+   "Juz": 30
+ },
+ {
+   "noSurat": 96,
+   "Nama": " Al-'Alaq ",
+   "turun": "Makkiyah",
+   "jumAyat": 19,
+   "awalAyat": 435,
+   "akhirAyat": 453,
+   "Juz": 30
+ },
+ {
+   "noSurat": 97,
+   "Nama": " Al-Qodar ",
+   "turun": "Makkiyah",
+   "jumAyat": 5,
+   "awalAyat": 454,
+   "akhirAyat": 458,
+   "Juz": 30
+ },
+ {
+   "noSurat": 98,
+   "Nama": " Al-Bayyinah ",
+   "turun": "Madaniyah",
+   "jumAyat": 8,
+   "awalAyat": 459,
+   "akhirAyat": 466,
+   "Juz": 30
+ },
+ {
+   "noSurat": 99,
+   "Nama": " Al-Zalzalah ",
+   "turun": "Madaniyah",
+   "jumAyat": 8,
+   "awalAyat": 467,
+   "akhirAyat": 474,
+   "Juz": 30
+ },
+ {
+   "noSurat": 100,
+   "Nama": " Al-'Aadiyat ",
+   "turun": "Makkiyah",
+   "jumAyat": 11,
+   "awalAyat": 475,
+   "akhirAyat": 485,
+   "Juz": 30
+ },
+ {
+   "noSurat": 101,
+   "Nama": " Al-Qori'ah ",
+   "turun": "Makkiyah",
+   "jumAyat": 11,
+   "awalAyat": 486,
+   "akhirAyat": 496,
+   "Juz": 30
+ },
+ {
+   "noSurat": 102,
+   "Nama": " At-Takaatsur ",
+   "turun": "Makkiyah",
+   "jumAyat": 8,
+   "awalAyat": 497,
+   "akhirAyat": 504,
+   "Juz": 30
+ },
+ {
+   "noSurat": 103,
+   "Nama": " Al-'Ashr ",
+   "turun": "Makkiyah",
+   "jumAyat": 3,
+   "awalAyat": 505,
+   "akhirAyat": 507,
+   "Juz": 30
+ },
+ {
+   "noSurat": 104,
+   "Nama": " Al-Humazah ",
+   "turun": "Makkiyah",
+   "jumAyat": 9,
+   "awalAyat": 508,
+   "akhirAyat": 516,
+   "Juz": 30
+ },
+ {
+   "noSurat": 105,
+   "Nama": " Al-Fiil ",
+   "turun": "Makkiyah",
+   "jumAyat": 5,
+   "awalAyat": 517,
+   "akhirAyat": 521,
+   "Juz": 30
+ },
+ {
+   "noSurat": 106,
+   "Nama": " Al-Quraisy ",
+   "turun": "Makkiyah",
+   "jumAyat": 4,
+   "awalAyat": 522,
+   "akhirAyat": 525,
+   "Juz": 30
+ },
+ {
+   "noSurat": 107,
+   "Nama": " Al-Maa'uun ",
+   "turun": "Makkiyah",
+   "jumAyat": 7,
+   "awalAyat": 526,
+   "akhirAyat": 532,
+   "Juz": 30
+ },
+ {
+   "noSurat": 108,
+   "Nama": " Al-Kawtsar ",
+   "turun": "Makkiyah",
+   "jumAyat": 3,
+   "awalAyat": 533,
+   "akhirAyat": 535,
+   "Juz": 30
+ },
+ {
+   "noSurat": 109,
+   "Nama": " Al-Kaafiruun ",
+   "turun": "Makkiyah",
+   "jumAyat": 6,
+   "awalAyat": 536,
+   "akhirAyat": 541,
+   "Juz": 30
+ },
+ {
+   "noSurat": 110,
+   "Nama": " An-Nashr ",
+   "turun": "Madaniyah",
+   "jumAyat": 3,
+   "awalAyat": 542,
+   "akhirAyat": 544,
+   "Juz": 30
+ },
+ {
+   "noSurat": 111,
+   "Nama": " Al-Lahab ",
+   "turun": "Makkiyah",
+   "jumAyat": 5,
+   "awalAyat": 545,
+   "akhirAyat": 549,
+   "Juz": 30
+ },
+ {
+   "noSurat": 112,
+   "Nama": " Al-Ikhlash ",
+   "turun": "Makkiyah",
+   "jumAyat": 4,
+   "awalAyat": 550,
+   "akhirAyat": 553,
+   "Juz": 30
+ },
+ {
+   "noSurat": 113,
+   "Nama": " Al-Falaq ",
+   "turun": "Madaniyah",
+   "jumAyat": 5,
+   "awalAyat": 554,
+   "akhirAyat": 558,
+   "Juz": 30
+ },
+ {
+   "noSurat": 114,
+   "Nama": " An-Naas ",
+   "turun": "Madaniyah",
+   "jumAyat": 6,
+   "awalAyat": 559,
+   "akhirAyat": 564,
+   "Juz": 30
+ }
+]
