@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container, Grid, Header, Segment, Button, Progress, ButtonGroup, GridRow, GridColumn, Radio, Modal, Form, Message, Divider } from 'semantic-ui-react'
+import { Container, Grid, Header, Segment, Button, Progress, ButtonGroup, GridRow, GridColumn, Radio, Divider } from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
 
 class Quiz extends React.Component {
   state = {
     jumSoalModal : false,
-    jumSoal: 10,
-    inputJumSoal: React.createRef()    
+    jumSoal: 10,   
   }  
   
   bukaJumSoal = () => this.setState({jumSoalModal: true});
