@@ -1,11 +1,16 @@
 import React from 'react';
-import { Container, Grid, Header, Segment, Button, Progress, ButtonGroup, GridRow, GridColumn, Radio, Divider } from 'semantic-ui-react'
+import { Container, Grid, Header, Segment, Button, Progress, ButtonGroup, GridRow, GridColumn} from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
+import Waktu from './waktu-component';
+import ActionComponent from './action-component';
+import SkorComponent from './skor-component';
+import KunciComponent from './kunci-component';
+import ToggleKunci from './toggleKunci';
 
 class Quiz extends React.Component {
   state = {
     jumSoalModal : false,
-    jumSoal: 10,   
+    jumSoal: 10  
   }  
   
   bukaJumSoal = () => this.setState({jumSoalModal: true});
@@ -67,98 +72,13 @@ class Quiz extends React.Component {
                   </Grid>
                 </Segment>
               </Segment.Group>
-              <Grid>
-                <GridRow>
-                  <GridColumn width={6} floated="right" textAlign="right">
-                    <Radio toggle label="Tampilkan Kunci"></Radio>
-                  </GridColumn>
-                </GridRow>
-              </Grid>
-              <Segment.Group id='Kunci'>
-                <Segment>
-                  <Header as='h2' textAlign='center'>Kunci</Header>
-                </Segment>
-                <Segment>
-                  <Grid stackable textAlign='center'>
-                    <GridRow>
-                      <GridColumn width={5}><p><b className='text'>Al-Mulk [67]</b></p></GridColumn>
-                      <GridColumn width={3}><p>ayat <b className=" text">6</b></p></GridColumn>
-                      <GridColumn width={5}><p>Jumlah Ayat <b className=" text">30</b></p></GridColumn>
-                      <GridColumn width={3}><p><b className=" text">Makkiyah</b></p></GridColumn>
-                    </GridRow>
-                  </Grid>
-                </Segment>
-                <Segment>
-                  <Grid verticalAlign='middle' columns={2}>
-                    <GridRow>
-                      <GridColumn width={5}><p className='huge text'><b>Ayat Selanjutnya</b></p></GridColumn>
-                      <GridColumn width={11} className='borderLeft'>
-                        <GridRow>
-                          <GridColumn><p className='super text arabic'><b>وَأَنزَلۡنَا مِنَ ٱلۡمُعۡصِرَٰتِ مَآءٗ ثَجَّاجٗا</b></p></GridColumn>
-                        </GridRow>
-                        <GridRow>
-                          <GridColumn><p className='text'>14.  dan Kami turunkan dari awan air yang banyak tercurah,</p></GridColumn>
-                        </GridRow>
-                      </GridColumn>
-                    </GridRow>
-                  </Grid>
-                </Segment>
-              </Segment.Group>              
+              <ToggleKunci />
+              <KunciComponent />                
             </Grid.Column>
             <Grid.Column width={5}>
-              <Segment textAlign='center'>
-                <Grid stackable>
-                  <GridRow>
-                    <GridColumn>
-                      <Button>MUROJA'AH<br />URUT</Button>
-                    </GridColumn>
-                  </GridRow>
-                  <GridRow>
-                    <GridColumn width={8}><Button>Acak Soal</Button></GridColumn>
-                    <GridColumn width={8}><Button>Reset Soal</Button></GridColumn>
-                  </GridRow>
-                </Grid>
-              </Segment>
-              <Segment.Group id='waktu'>
-                <Header as='h3' attached='top' textAlign='center'>Waktu</Header>
-                <Segment color='green' inverted attached textAlign='center'>
-                  <Header as='h2'>00.00.00</Header>
-                </Segment>
-                <Segment attached>
-                  <Grid stackable textAlign='center'>
-                    <GridRow>
-                      <GridColumn width={8}><Button>Mulai</Button></GridColumn>
-                      <GridColumn width={8}><Button>Stop</Button></GridColumn>
-                    </GridRow>
-                    <GridRow>
-                      <GridColumn><Button>Reset Waktu</Button></GridColumn>
-                    </GridRow>
-                  </Grid>
-                </Segment>
-              </Segment.Group>
-              <Segment.Group id='skor'>
-                <Segment.Group horizontal>
-                  <Segment textAlign='center'>
-                    <Header as='h3' color='violet'>Benar</Header>
-                    <Divider fitted></Divider>
-                    <Header as='h3' color='violet'>0</Header>
-                    <Button color='violet'>Benar</Button>
-                  </Segment>
-                  <Segment textAlign='center'>
-                    <Header as='h3' color='red'>Salah</Header>
-                    <Divider fitted></Divider>
-                    <Header as='h3' color='red'>0</Header>
-                    <Button color='red'>Salah</Button>
-                  </Segment>
-                </Segment.Group>
-                <Segment clearing textAlign='center'>
-                  <Header as='h3'>SKOR</Header>
-                  <Divider fitted></Divider>
-                  <Header as='h2'>0.00</Header>
-                  <Button floated='left'>Daftar Nilai</Button>
-                  <Button floated='right'>Daftar Nilai</Button>
-                </Segment>
-              </Segment.Group>
+              <ActionComponent />
+              <Waktu />
+              <SkorComponent />
             </Grid.Column>
           </Grid>
         </Container>
