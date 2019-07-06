@@ -21,6 +21,7 @@ class Quiz extends React.Component {
     noKunci: 0,     
   } 
   createPackSoal = () => {
+    console.log('createPackSoal');
     let tempPackSoal = [];
     let tempPackKunci = [];
     for(let i=0; i < this.state.jumSoal; i++){  
@@ -34,9 +35,7 @@ class Quiz extends React.Component {
         tempPackKunci.push(kunciAyat);
       }      
     }
-    this.setState({packSoal:tempPackSoal, packKunci:tempPackKunci});
-
-    
+    this.setState({packSoal:tempPackSoal, packKunci:tempPackKunci});    
   } 
   createSingleSoal = () => {
     const noAyat = this.handleAcak();
@@ -50,7 +49,7 @@ class Quiz extends React.Component {
   bukaJumSoal = () => this.setState({jumSoalModal: true});
   tutupJumSoal = () => this.setState({jumSoalModal: false});
   handleSubmitJumSoal = (value) => {    
-    this.setState({jumSoal: value}, () =>{
+    this.setState({jumSoal: value, currentSoal: 1}, () =>{
       this.createPackSoal();
     });
     this.tutupJumSoal();
@@ -64,6 +63,20 @@ class Quiz extends React.Component {
     const hasilAcak = Math.floor(Math.random() * (jumAyat-1));
     return hasilAcak;     
   };
+  handleNextSoal = () => {
+    if(this.state.currentSoal < this.state.jumSoal){
+      this.setState({currentSoal: this.state.currentSoal+1});
+    }else{
+      return
+    }    
+  }
+  handlePrevSoal = () => {
+    if(this.state.currentSoal > 1){
+      this.setState({currentSoal: this.state.currentSoal-1});
+    }else{
+      return
+    }    
+  }
   componentDidMount() {
     //this.handleAcak();
     this.createPackSoal();
@@ -80,6 +93,8 @@ class Quiz extends React.Component {
                 jumSoal = {this.state.jumSoal}              
                 bukaJumSoal ={this.bukaJumSoal}
                 soalAyat={this.state.packSoal}
+                nextSoal={this.handleNextSoal}
+                prevSoal={this.handlePrevSoal}
               />
               <ToggleKunci 
                 showKunci={this.state.showKunci}

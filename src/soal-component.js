@@ -8,8 +8,7 @@ class SoalComponent extends Component {
     render() {
         const jumSoal = this.props.jumSoal;
         const currentSoal = this.props.currentSoal;
-        const soalAyat=this.props.soalAyat;
-        console.log(soalAyat.length);
+        const soalAyat=this.props.soalAyat;        
         if(soalAyat.length===0){
             return(<div></div>);
         }
@@ -21,11 +20,23 @@ class SoalComponent extends Component {
                         <Header as="h3" textAlign='center'>{currentSoal}/{jumSoal}</Header>
                         <Button size='mini' primary id="rubahSoal" onClick={this.bukaJumSoal}>rubah jumlah soal</Button>
                     </div>
-                    <Progress color="green" value='{currentSoal}' total={jumSoal} progress='ratio' label="Progress"></Progress>
+                    <Progress color="green" value={currentSoal} total={jumSoal} progress='ratio' label="Progress"></Progress>
                 </Segment>
                 <ButtonGroup attached>
-                    <Button content='Sebelumnya' icon='left arrow' labelPosition='left' />
-                    <Button content='Selanjutnya' icon='right arrow' labelPosition='right' />
+                    <Button 
+                        content='Sebelumnya' 
+                        icon='left arrow' 
+                        labelPosition='left'  
+                        onClick={this.props.prevSoal} 
+                        disabled={currentSoal <= 1 ? true : false} 
+                    />
+                    <Button 
+                        content='Selanjutnya' 
+                        icon='right arrow' 
+                        labelPosition='right' 
+                        onClick={this.props.nextSoal} 
+                        disabled={currentSoal >= jumSoal ? true : false} 
+                    />
                 </ButtonGroup>
                 <Segment.Group horizontal>
                     <Segment attached color="red" inverted>
