@@ -5,7 +5,8 @@ class KunciComponent extends Component {
     render() {
         const showKunci = this.props.showKunci;
         const kunciAyat = this.props.kunciAyat;
-        if(showKunci){
+        const currentSoal = this.props.currentSoal;
+        if((showKunci)&&(kunciAyat.length!==0)){
             return (            
                 <Segment.Group id='Kunci'>
                     <Segment>
@@ -14,10 +15,10 @@ class KunciComponent extends Component {
                     <Segment>
                         <Grid stackable textAlign='center'>
                             <GridRow>
-                                <GridColumn width={5}><p><b className='text'>{kunciAyat.Nama} [{kunciAyat.noSurat}]</b></p></GridColumn>
-                                <GridColumn width={3}><p>ayat <b className=" text">{kunciAyat.ayat}</b></p></GridColumn>
-                                <GridColumn width={5}><p>Jumlah Ayat <b className=" text">{kunciAyat.jumAyat}</b></p></GridColumn>
-                                <GridColumn width={3}><p><b className=" text">{kunciAyat.turun}</b></p></GridColumn>
+                                <GridColumn width={5}><p><b className='text'>{kunciAyat[currentSoal-1].Nama} [{kunciAyat[currentSoal-1].noSurat}]</b></p></GridColumn>
+                                <GridColumn width={3}><p>ayat <b className=" text">{kunciAyat[currentSoal-1].ayat}</b></p></GridColumn>
+                                <GridColumn width={5}><p>Jumlah Ayat <b className=" text">{kunciAyat[currentSoal-1].jumAyat}</b></p></GridColumn>
+                                <GridColumn width={3}><p><b className=" text">{kunciAyat[currentSoal-1].turun}</b></p></GridColumn>
                             </GridRow>
                         </Grid>
                     </Segment>
@@ -27,10 +28,10 @@ class KunciComponent extends Component {
                                 <GridColumn width={5}><p className='huge text'><b>Ayat Selanjutnya</b></p></GridColumn>
                                 <GridColumn width={11} className='borderLeft'>
                                     <GridRow>
-                                        <GridColumn><p className='super text arabic'><b>{kunciAyat.bacaan}</b></p></GridColumn>
+                                        <GridColumn><p className='super text arabic'><b>{kunciAyat[currentSoal-1].bacaan}</b></p></GridColumn>
                                     </GridRow>
                                     <GridRow>
-                                        <GridColumn><p className='text'>{kunciAyat.tafsir}</p></GridColumn>
+                                        <GridColumn><p className='text'>{kunciAyat[currentSoal-1].tafsir}</p></GridColumn>
                                     </GridRow>
                                 </GridColumn>
                             </GridRow>
