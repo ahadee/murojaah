@@ -7,57 +7,53 @@ class SkorComponent extends Component {
         skorSalah: 0
     }
     onClickBenar = () => {
-        const currentSoal = this.props.currentSoal;
-        const jumSoal = this.props.jumSoal;        
-        if(currentSoal<jumSoal){
-            this.setState({
-                skorBenar: this.state.skorBenar+1
-            }, () => this.props.onClickSkor());
-        }else if(currentSoal===jumSoal){
-            this.setState({
-                skorBenar: jumSoal-this.state.skorSalah
-            })
-        }
+        this.props.onClickSkor(true);
     }
     onClickSalah = () => {
-        const currentSoal = this.props.currentSoal;
-        const jumSoal = this.props.jumSoal;
-        if(currentSoal<jumSoal){
-            this.setState({
-                skorSalah: this.state.skorSalah+1
-            }, () => this.props.onClickSkor());
-        }else if(currentSoal===jumSoal){
-            this.setState({
-                skorSalah: jumSoal-this.state.skorBenar
-            })
-        }
+        this.props.onClickSkor(false);
     }
     render() {
-        const currentSoal = this.props.currentSoal;
-        const jumSoal = this.props.jumSoal
+        const jumSoal = this.props.jumSoal;
+        let totalBenar = 0;
+        let totalSalah = 0;        
+        const packSoal = this.props.packSoal;
+        for(let i=0; i<packSoal.length; i++){
+            if(packSoal[i].hasOwnProperty('skor')){
+                console.log(i+ "=> " +packSoal[i].skor)
+                if(packSoal[i].skor===true){
+                    totalBenar +=1;
+                } else if(packSoal[i].skor===false){
+                    totalSalah +=1;
+                }
+            }
+        } 
+        let nilaiSkor = (totalBenar/jumSoal*100).toFixed(2);     
+        
         return (            
                 <Segment.Group id='skor'>
                     <Segment.Group horizontal>
                         <Segment textAlign='center'>
                             <Header as='h3' color='violet'>Benar</Header>
                             <Divider fitted></Divider>
-                            <Header as='h3' color='violet'>{this.state.skorBenar}</Header>
+                            <Header as='h3' color='violet'>{totalBenar}</Header>
                             <Button color='violet' onClick={this.onClickBenar}>Benar</Button>
                         </Segment>
                         <Segment textAlign='center'>
                             <Header as='h3' color='red'>Salah</Header>
                             <Divider fitted></Divider>
-                            <Header as='h3' color='red'>{this.state.skorSalah}</Header>
+                            <Header as='h3' color='red'>{totalSalah}</Header>
                             <Button color='red' onClick={this.onClickSalah}>Salah</Button>
                         </Segment>
+                        <Segment clearing textAlign='center'>
+                            <Header as='h3'>SKOR</Header>
+                            <Divider fitted></Divider>
+                            <Header as='h2'>{nilaiSkor}</Header>
+                            <Button>Rekam Nilai</Button>
+                            <p></p>
+                            <Button>Daftar Nilai</Button>
+                        </Segment>
                     </Segment.Group>
-                    <Segment clearing textAlign='center'>
-                        <Header as='h3'>SKOR</Header>
-                        <Divider fitted></Divider>
-                        <Header as='h2'>0.00</Header>
-                        <Button floated='left'>Daftar Nilai</Button>
-                        <Button floated='right'>Daftar Nilai</Button>
-                    </Segment>
+                    
                 </Segment.Group>    
             
         );

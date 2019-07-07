@@ -37,8 +37,27 @@ class Quiz extends React.Component {
       packSoal:tempPackSoal, 
       packKunci:tempPackKunci,
       currentSoal: 1
-    });    
+    });
   } 
+  shuffle = (array) => {
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+    
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
   createSingleSoal = () => {
     const noAyat = this.handleAcak();
     const currentindex = this.state.currentSoal-1;
@@ -53,6 +72,16 @@ class Quiz extends React.Component {
       packKunci: tempPackKunci
     })   
   }
+  resetSoal = () => {
+    let tempPackSoal = this.state.packSoal;
+    for(let i=0; i<tempPackSoal.length; i++){
+      tempPackSoal[i].skor=null;
+    }
+    this.setState({
+      currentSoal:1,
+      packSoal: tempPackSoal
+    });
+  };
 
   bukaJumSoal = () => this.setState({jumSoalModal: true});
 
@@ -80,6 +109,7 @@ class Quiz extends React.Component {
     if(this.state.currentSoal < this.state.jumSoal){
       this.setState({currentSoal: this.state.currentSoal+1});
     }else{
+      alert("Soal Habis");
       return
     }    
   }
@@ -92,12 +122,20 @@ class Quiz extends React.Component {
     }    
   }
 
-  handleClickSkor = () => {
+  handleClickSkor = (value=true) => {
+    const currentSoal = this.state.currentSoal;
+    let theAyats = this.state.packSoal;
+
+    theAyats[currentSoal-1].skor=value;
+    
+    this.setState({packSoal:theAyats});
+
     this.handleNextSoal();
   }
 
   componentDidMount() {
     //this.handleAcak();
+    console.log('I am about to say hello');
     this.createPackSoal();
   }
 
@@ -106,7 +144,7 @@ class Quiz extends React.Component {
         <div>
         <Container id="allContainer">          
           <Grid>
-            <Grid.Column width={11}>
+            <Grid.Column width={9}>
               <SoalComponent 
                 currentSoal ={this.state.currentSoal}
                 jumSoal = {this.state.jumSoal}              
@@ -125,16 +163,17 @@ class Quiz extends React.Component {
                 kunciAyat={this.state.packKunci}
               />                
             </Grid.Column>
-            <Grid.Column width={5}>
+            <Grid.Column width={7}>
               <ActionComponent 
-                onAcak={this.createSingleSoal}
-                onResetSoal={this.createPackSoal}
+                onAcakSingle={this.createSingleSoal}
+                onAcakAll={this.createPackSoal}
+                onResetSoal={this.resetSoal}
               />
               <Waktu />
-              <SkorComponent 
-                currentSoal ={this.state.currentSoal}
+              <SkorComponent                 
                 onClickSkor ={this.handleClickSkor}
                 jumSoal = {this.state.jumSoal}
+                packSoal = {this.state.packSoal}
               />
             </Grid.Column>
           </Grid>

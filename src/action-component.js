@@ -6,17 +6,9 @@ class ActionComponent extends Component {
         return (
             
                 <Segment textAlign='center'>
-                    <Grid stackable>
-                        <GridRow>
-                            <GridColumn>
-                                <Button>MUROJA'AH<br />URUT</Button>
-                            </GridColumn>
-                        </GridRow>
-                        <GridRow>
-                            <GridColumn width={8}><Button onClick={this.props.onAcak}>Acak Soal</Button></GridColumn>
-                            <GridColumn width={8}><Button onClick={this.props.onResetSoal}>Reset Soal</Button></GridColumn>
-                        </GridRow>
-                    </Grid>
+                    <Button onClick={this.props.onAcakAll}>Acak Soal</Button>
+                    <Button onClick={this.props.onAcakSingle}>Acak  1 Soal</Button>
+                    <Button onClick={this.props.onResetSoal}>Reset Soal</Button>                    
                 </Segment>    
             
         );
