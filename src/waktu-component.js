@@ -77,14 +77,14 @@ class Waktu extends Component {
                     <Segment color='green' inverted attached textAlign='center'>
                         <Header as='h2'>{elapsedString}</Header>
                     </Segment>
-                    <Segment attached>
+                    <Segment attached textAlign="center">                        
                         <Grid stackable textAlign='center'>
                             <GridRow>
-                                <GridColumn width={8}><Button onClick={this.startTimer}>Mulai</Button></GridColumn>
-                                <GridColumn width={8}><Button onClick={this.stopTimer}>Stop</Button></GridColumn>
+                                <GridColumn width={8}><Button onClick={this.startTimer} content='Mulai' icon='play' labelPosition='left' /></GridColumn>
+                                <GridColumn width={8}><Button onClick={this.stopTimer} content='Stop' icon='stop' labelPosition='left' /></GridColumn>
                             </GridRow>
                             <GridRow>
-                                <GridColumn><Button onClick={this.resetTimer}>Reset Waktu</Button></GridColumn>
+                                <GridColumn><Button onClick={this.resetTimer} content='Reset Waktu' icon='sync' labelPosition='left' /></GridColumn>
                             </GridRow>
                         </Grid>
                     </Segment>

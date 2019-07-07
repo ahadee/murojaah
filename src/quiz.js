@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Button} from 'semantic-ui-react'
+import { Container, Grid} from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
 import Waktu from './waktu-component';
 import ActionComponent from './action-component';
@@ -84,8 +84,7 @@ class Quiz extends React.Component {
     render() {
       return(
         <div>
-        <Container id="allContainer">
-          <Button onClick={this.createPackSoal}>Tester</Button>
+        <Container id="allContainer">          
           <Grid>
             <Grid.Column width={11}>
               <SoalComponent 
