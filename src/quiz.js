@@ -18,20 +18,20 @@ class Quiz extends React.Component {
     jumSoal: 10,
     showKunci: false,    
   } 
-  createPackSoal = () => {
-    console.log('createPackSoal');
+  createPackSoal = (murojaahUrut=false) => {  
+    let tempKeySoal =[];
     let tempPackSoal = [];
     let tempPackKunci = [];
-    for(let i=0; i < this.state.jumSoal; i++){  
-      const noAyat = this.handleAcak();
-      const soalAyat = this.state.theAyats[noAyat];
-      const kunciAyat = this.state.theAyats[noAyat+1];
-      if(tempPackSoal.indexOf(soalAyat)>=0){              
-        i--;
-      }else{
-        tempPackSoal.push(soalAyat);
-        tempPackKunci.push(kunciAyat);
-      }      
+    for(let i=0; i < this.state.theAyats.length-1; i++){
+      tempKeySoal[i]=i;
+    } 
+    if(!murojaahUrut){
+      tempKeySoal = this.shuffle(tempKeySoal);
+    }    
+    tempKeySoal = tempKeySoal.slice(0, this.state.jumSoal);
+    for(let i=0; i<tempKeySoal.length; i++){
+      tempPackSoal.push(this.state.theAyats[tempKeySoal[i]]);
+      tempPackKunci.push(this.state.theAyats[tempKeySoal[i]+1]);      
     }
     this.setState({
       packSoal:tempPackSoal, 
@@ -82,6 +82,11 @@ class Quiz extends React.Component {
       packSoal: tempPackSoal
     });
   };
+
+  handleMurojaahUrut = () => {
+    const jumSoal = this.state.theAyats.length-1;
+    this.setState({jumSoal:jumSoal}, () => this.createPackSoal(true));   
+  }
 
   bukaJumSoal = () => this.setState({jumSoalModal: true});
 
@@ -165,6 +170,7 @@ class Quiz extends React.Component {
             </Grid.Column>
             <Grid.Column width={7}>
               <ActionComponent 
+                onMurojaahUrut={this.handleMurojaahUrut}
                 onAcakSingle={this.createSingleSoal}
                 onAcakAll={this.createPackSoal}
                 onResetSoal={this.resetSoal}

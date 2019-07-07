@@ -6,6 +6,7 @@ class ActionComponent extends Component {
         return (
             
                 <Segment textAlign='center'>
+                    <Button fluid className="header" onClick={this.props.onMurojaahUrut}>Muroja'ah Urut</Button>
                     <Button onClick={this.props.onAcakAll}>Acak Soal</Button>
                     <Button onClick={this.props.onAcakSingle}>Acak  1 Soal</Button>
                     <Button onClick={this.props.onResetSoal}>Reset Soal</Button>                    
