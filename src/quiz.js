@@ -22,7 +22,7 @@ class Quiz extends React.Component {
     let tempKeySoal =[];
     let tempPackSoal = [];
     let tempPackKunci = [];
-    for(let i=0; i < this.state.theAyats.length-1; i++){
+    for(let i=0; i < this.state.theAyats.length; i++){
       tempKeySoal[i]=i;
     } 
     if(!murojaahUrut){
@@ -31,8 +31,14 @@ class Quiz extends React.Component {
     tempKeySoal = tempKeySoal.slice(0, this.state.jumSoal);
     for(let i=0; i<tempKeySoal.length; i++){
       tempPackSoal.push(this.state.theAyats[tempKeySoal[i]]);
-      tempPackKunci.push(this.state.theAyats[tempKeySoal[i]+1]);      
+      if(i===this.state.theAyats.length-1){
+        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]]);              
+      }else{
+        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]+1]);      
+      }
+      
     }
+
     this.setState({
       packSoal:tempPackSoal, 
       packKunci:tempPackKunci,
@@ -59,19 +65,31 @@ class Quiz extends React.Component {
     return array;
   }
   createSingleSoal = () => {
-    const noAyat = this.handleAcak();
+    const noAyat = this.handleAcak()-1;
     const currentindex = this.state.currentSoal-1;
     const tempPackSoal = this.state.packSoal;
     const tempPackKunci = this.state.packKunci;
     
     tempPackSoal[currentindex] = this.state.theAyats[noAyat];
-    tempPackKunci[currentindex] = this.state.theAyats[noAyat+1];
+    if(noAyat===this.state.theAyats.length-1){
+      tempPackKunci[currentindex] = this.state.theAyats[noAyat];
+    }else{
+      tempPackKunci[currentindex] = this.state.theAyats[noAyat+1];
+    } 
+    
 
     this.setState({
       packSoal: tempPackSoal,
       packKunci: tempPackKunci
     })   
   }
+
+  handleAcak = () => {
+    const jumAyat = this.state.theAyats.length;
+    const hasilAcak = Math.floor(Math.random() * (jumAyat));
+    return hasilAcak;     
+  };
+
   resetSoal = () => {
     let tempPackSoal = this.state.packSoal;
     for(let i=0; i<tempPackSoal.length; i++){
@@ -84,7 +102,7 @@ class Quiz extends React.Component {
   };
 
   handleMurojaahUrut = () => {
-    const jumSoal = this.state.theAyats.length-1;
+    const jumSoal = this.state.theAyats.length;
     this.setState({jumSoal:jumSoal}, () => this.createPackSoal(true));   
   }
 
@@ -97,18 +115,12 @@ class Quiz extends React.Component {
       this.createPackSoal();
     });
     this.tutupJumSoal();
-  };
+  }; 
 
   handleToggleKunci = () => {
     const nextKunci = !this.state.showKunci;
     this.setState({showKunci: nextKunci});
   }
-
-  handleAcak = () => {
-    const jumAyat = this.state.theAyats.length;
-    const hasilAcak = Math.floor(Math.random() * (jumAyat-1));
-    return hasilAcak;     
-  };
 
   handleNextSoal = () => {
     if(this.state.currentSoal < this.state.jumSoal){
@@ -189,6 +201,7 @@ class Quiz extends React.Component {
           jumSoal={this.state.jumSoal} 
           onTutupModal={this.tutupJumSoal}
           onSubmitModal={this.handleSubmitJumSoal}
+          maxSoal={this.state.theAyats.length}          
         />
         </div>
       );
