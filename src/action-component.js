@@ -14,7 +14,7 @@ class ActionComponent extends Component {
                         </GridRow>
                         <GridRow>
                             <GridColumn width={8}><Button onClick={this.props.onAcak}>Acak Soal</Button></GridColumn>
-                            <GridColumn width={8}><Button>Reset Soal</Button></GridColumn>
+                            <GridColumn width={8}><Button onClick={this.props.onResetSoal}>Reset Soal</Button></GridColumn>
                         </GridRow>
                     </Grid>
                 </Segment>    
