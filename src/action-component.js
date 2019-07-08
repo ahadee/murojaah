@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Grid, GridRow, GridColumn, Button } from 'semantic-ui-react';
+import { Segment, Button } from 'semantic-ui-react';
 
 class ActionComponent extends Component {
     render() {

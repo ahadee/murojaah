@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import { Modal, Message, Form, Button } from "semantic-ui-react";
 
 class JumSoalForm extends Component {
-    state = {                
-        inputJumSoal: React.createRef() ,
-        errorClass: ''             
-    };   
+    constructor(props) {
+        super(props)
+        
+        this.inputJumSoal = React.createRef();
+        this.state = {
+            errorClass: '',
+        }
+      }       
     tutupJumSoal = () => {
         this.props.onTutupModal();
     }
     submitJumSoal = () => {
-        var value = this.state.inputJumSoal.current.value;
+        var value = this.inputJumSoal.current.value;
         //console.log('is integer ' + Number(value));
         if(value === ''){
             this.setState({errorClass:'error'});
@@ -22,14 +26,16 @@ class JumSoalForm extends Component {
     };
     submitSemuaAyat = () => {
         const maxSoal=this.props.maxSoal;
-        this.state.inputJumSoal.current.value = maxSoal;
-        this.props.onSubmitModal(maxSoal);
+        this.inputJumSoal.current.value = maxSoal;
+        //this.setState({inputJumSoal.current.value:maxSoal})
+        //this.state.inputJumSoal.current.value = maxSoal;
+        //this.props.onSubmitModal(maxSoal);
 
     };
 
     render() {
         const jumSoalModal = this.props.jumSoalModal;
-        const jumSoal= this.props.jumSoal;
+        let jumSoal= this.props.jumSoal;
         
         return (
             <div>
@@ -44,7 +50,7 @@ class JumSoalForm extends Component {
                                 <label>Masukkan jumlah soal</label>
                                 <input 
                                 id="inputJumSoal" 
-                                ref={this.state.inputJumSoal} 
+                                ref={this.inputJumSoal} 
                                 name="inputJumSoal" 
                                 placeholder="jumlah soal" 
                                 defaultValue= {jumSoal}
