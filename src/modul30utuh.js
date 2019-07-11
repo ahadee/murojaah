@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid} from 'semantic-ui-react'
+import { Container, Grid, Header} from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
 import Waktu from './waktu-component';
 import ActionComponent from './action-component';
@@ -8,7 +8,7 @@ import KunciComponent from './kunci-component';
 import ToggleKunci from './toggleKunci';
 import SoalComponent from './soal-component';
 
-class Quiz extends React.Component {
+class Modul30Utuh extends React.Component {
   state = {
     theAyats: this.props.theAyats,
     currentSoal: 1,
@@ -158,7 +158,8 @@ class Quiz extends React.Component {
     render() {
       return(
         <div>
-        <Container id="allContainer">          
+        <Container id="allContainer">  
+          <Header as="h1" textAlign="center">Juz 30 Utuh</Header>
           <Grid>
             <Grid.Column width={9}>
               <SoalComponent 
@@ -206,4 +207,4 @@ class Quiz extends React.Component {
       );
     };
 }
-export default Quiz;
+export default Modul30Utuh;

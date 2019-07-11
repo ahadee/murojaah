@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import data from "./juz30.json";
+import data30 from "./juz30.json";
+import data29 from "./juz29.json";
 import surat from "./tableSurat.json"
-import Layout from "./quiz";
+import Modul30Utuh from "./modul30utuh";
 
 class App extends React.Component {
   constructor ()
@@ -10,14 +11,14 @@ class App extends React.Component {
     super();
     this.state={
       surat: surat,
-      data: data,
-
+      data30: data30,
+      data29: data29,
     }    
     
     
   }
   gabungData2 = () => {
-    const theAyats = JSON.parse(JSON.stringify(this.state.data));
+    const theAyats = JSON.parse(JSON.stringify(this.state.data29));
     let theSurat = JSON.parse(JSON.stringify(this.state.surat));
     for(let i=0; i < theAyats.length; i++){
       for(let j=0; j < theSurat.length; j++){
@@ -38,7 +39,7 @@ class App extends React.Component {
       return (
         <div className="App">        
           <div>          
-            <Layout              
+            <Modul30Utuh              
               theAyats={theAyats}
             />                      
           </div>
