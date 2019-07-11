@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Header, Divider, Button } from 'semantic-ui-react';
 
-class SkorComponent extends Component {
-    state = {
-        skorBenar: 0,
-        skorSalah: 0
-    }
+class SkorComponent extends Component {    
     onClickBenar = () => {
         this.props.onClickSkor(true);
     }
