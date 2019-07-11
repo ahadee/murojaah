@@ -19,7 +19,6 @@ class SkorComponent extends Component {
         const packSoal = this.props.packSoal;
         for(let i=0; i<packSoal.length; i++){
             if(packSoal[i].hasOwnProperty('skor')){
-                console.log(i+ "=> " +packSoal[i].skor)
                 if(packSoal[i].skor===true){
                     totalBenar +=1;
                 } else if(packSoal[i].skor===false){

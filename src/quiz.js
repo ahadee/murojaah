@@ -152,7 +152,6 @@ class Quiz extends React.Component {
 
   componentDidMount() {
     //this.handleAcak();
-    console.log('I am about to say hello');
     this.createPackSoal();
   }
 

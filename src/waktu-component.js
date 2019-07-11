@@ -23,8 +23,7 @@ class Waktu extends Component {
         const now = Date.now();
         let lastElapsed = 0;
         if(this.state.runningSince!=null){
-            lastElapsed = now-this.state.runningSince;
-            //console.log("lagi jalan");            
+            lastElapsed = now-this.state.runningSince;                   
         }             
         this.setState({
             runningSince: null,
