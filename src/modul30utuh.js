@@ -188,7 +188,11 @@ class Modul30Utuh extends React.Component {
                   kunciAyat: this.state.packKunci
                 }}
               >
-                <KunciComponent />            
+                <KunciComponent 
+                  showKunci= {this.state.showKunci}
+                  currentSoal= {this.state.currentSoal}
+                  kunciAyat= {this.state.packKunci}
+                />            
               </ModulContext.Provider>    
             </Grid.Column>
             <Grid.Column width={7}>

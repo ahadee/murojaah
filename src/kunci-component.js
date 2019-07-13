@@ -1,15 +1,12 @@
 import React from 'react';
 import { Segment, Header, Grid, GridRow, GridColumn } from 'semantic-ui-react';
-import ModulContext from "./modul-context";
 
 
 class KunciComponent extends React.Component {
     render() {
-        const showKunci = this.context.showKunci;
-        const kunciAyat = this.context.kunciAyat;
-        const currentSoal = this.context.currentSoal;
-        const context = this.context;
-        //console.log(context);
+        const showKunci = this.props.showKunci;
+        const kunciAyat = this.props.kunciAyat;
+        const currentSoal = this.props.currentSoal;        
         
         if((showKunci)&&(kunciAyat.length!==0)){
             return (
@@ -52,7 +49,5 @@ class KunciComponent extends React.Component {
         } 
     }               
 }
-
-KunciComponent.contextType = ModulContext;
 
 export default KunciComponent;

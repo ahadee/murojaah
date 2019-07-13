@@ -37,15 +37,8 @@ class MainApp extends React.Component {
     
   }
   render() {  
-    const matchPath = this.props.match.path; 
-    console.log(matchPath);
-    let theAyats =[];   
-    if(matchPath==='/29utuh'){
-
-    } else {
-
-    }
-    
+    const matchPath = this.props.match.path;     
+    let theAyats =[];       
     if((theAyats.length===0)){
       theAyats = this.gabungData2(matchPath);
       return (
