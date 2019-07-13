@@ -7,11 +7,10 @@ import SkorComponent from './skor-component';
 import KunciComponent from './kunci-component';
 import ToggleKunci from './toggleKunci';
 import SoalComponent from './soal-component';
-import ModulContext from "./modul-context";
 
 class Modul30Utuh extends React.Component {
   state = {
-    theAyats: this.props.theAyats,
+    //theAyats: this.props.theAyats,
     currentSoal: 1,
     packSoal: [],
     packKunci:[],
@@ -24,7 +23,7 @@ class Modul30Utuh extends React.Component {
     let tempPackSoal = [];
     let tempPackKunci = [];
     
-    for(let i=0; i < this.state.theAyats.length; i++){
+    for(let i=0; i < this.props.theAyats.length; i++){
       tempKeySoal[i]=i;
     } 
     if(murojaahUrut!==true){
@@ -32,11 +31,11 @@ class Modul30Utuh extends React.Component {
     }    
     tempKeySoal = tempKeySoal.slice(0, this.state.jumSoal);
     for(let i=0; i<tempKeySoal.length; i++){
-      tempPackSoal.push(this.state.theAyats[tempKeySoal[i]]);
-      if(i===this.state.theAyats.length-1){
-        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]]);              
+      tempPackSoal.push(this.props.theAyats[tempKeySoal[i]]);
+      if(i===this.props.theAyats.length-1){
+        tempPackKunci.push(this.props.theAyats[tempKeySoal[i]]);              
       }else{
-        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]+1]);      
+        tempPackKunci.push(this.props.theAyats[tempKeySoal[i]+1]);      
       }
       
     }
@@ -72,11 +71,11 @@ class Modul30Utuh extends React.Component {
     const tempPackSoal = this.state.packSoal;
     const tempPackKunci = this.state.packKunci;
     
-    tempPackSoal[currentindex] = this.state.theAyats[noAyat];
-    if(noAyat===this.state.theAyats.length-1){
-      tempPackKunci[currentindex] = this.state.theAyats[noAyat];
+    tempPackSoal[currentindex] = this.props.theAyats[noAyat];
+    if(noAyat===this.props.theAyats.length-1){
+      tempPackKunci[currentindex] = this.props.theAyats[noAyat];
     }else{
-      tempPackKunci[currentindex] = this.state.theAyats[noAyat+1];
+      tempPackKunci[currentindex] = this.props.theAyats[noAyat+1];
     } 
     
 
@@ -87,7 +86,7 @@ class Modul30Utuh extends React.Component {
   }
 
   handleAcak = () => {
-    const jumAyat = this.state.theAyats.length;
+    const jumAyat = this.props.theAyats.length;
     const hasilAcak = Math.floor(Math.random() * (jumAyat));
     return hasilAcak;     
   };
@@ -104,7 +103,7 @@ class Modul30Utuh extends React.Component {
   };
 
   handleMurojaahUrut = () => {
-    const jumSoal = this.state.theAyats.length;
+    const jumSoal = this.props.theAyats.length;
     this.setState({jumSoal:jumSoal}, () => this.createPackSoal(true));   
   }
 
@@ -181,19 +180,13 @@ class Modul30Utuh extends React.Component {
                 showKunci={this.state.showKunci}
                 onClick={this.handleToggleKunci}
               />
-              <ModulContext.Provider
-                value={{
-                  showKunci: this.state.showKunci,
-                  currentSoal: this.state.currentSoal,
-                  kunciAyat: this.state.packKunci
-                }}
-              >
+              
                 <KunciComponent 
                   showKunci= {this.state.showKunci}
                   currentSoal= {this.state.currentSoal}
                   kunciAyat= {this.state.packKunci}
                 />            
-              </ModulContext.Provider>    
+                 
             </Grid.Column>
             <Grid.Column width={7}>
               <ActionComponent 
@@ -216,7 +209,7 @@ class Modul30Utuh extends React.Component {
           jumSoal={this.state.jumSoal} 
           onTutupModal={this.tutupJumSoal}
           onSubmitModal={this.handleSubmitJumSoal}
-          maxSoal={this.state.theAyats.length}          
+          maxSoal={this.props.theAyats.length}          
         />
         </div>
       );

@@ -19,7 +19,7 @@ class App extends React.Component {
     const sideVisibility = this.state.sideVisibility; 
     return (
       <Router
-        basename="/murojaah2/"
+        basename="/murojaah/"
       >
       <Sidebar.Pushable>
               
