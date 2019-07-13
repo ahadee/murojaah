@@ -9,7 +9,7 @@ class KunciComponent extends React.Component {
         const kunciAyat = this.context.kunciAyat;
         const currentSoal = this.context.currentSoal;
         const context = this.context;
-        console.log(context);
+        //console.log(context);
         
         if((showKunci)&&(kunciAyat.length!==0)){
             return (

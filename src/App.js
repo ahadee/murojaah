@@ -36,6 +36,9 @@ class App extends React.Component {
         </Menu.Item>        
         <NavLink to='/30utuh' className="item">Juz 30 Utuh</NavLink>
         <NavLink to='/29utuh' className="item">Juz 29 Utuh</NavLink>
+        <Menu.Item >Juz 30 Surat</Menu.Item> 
+        <Menu.Item >Juz 29 Surat</Menu.Item> 
+        <Menu.Item >Sambung Surat</Menu.Item> 
         
         
         </Sidebar>

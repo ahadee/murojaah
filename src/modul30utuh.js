@@ -23,10 +23,11 @@ class Modul30Utuh extends React.Component {
     let tempKeySoal =[];
     let tempPackSoal = [];
     let tempPackKunci = [];
+    
     for(let i=0; i < this.state.theAyats.length; i++){
       tempKeySoal[i]=i;
     } 
-    if(!murojaahUrut){
+    if(murojaahUrut!==true){
       tempKeySoal = this.shuffle(tempKeySoal);
     }    
     tempKeySoal = tempKeySoal.slice(0, this.state.jumSoal);
@@ -113,7 +114,7 @@ class Modul30Utuh extends React.Component {
 
   handleSubmitJumSoal = (value) => {    
     this.setState({jumSoal: value, currentSoal: 1}, () =>{
-      this.createPackSoal();
+      this.createPackSoal(false);
     });
     this.tutupJumSoal();
   }; 
@@ -175,8 +176,6 @@ class Modul30Utuh extends React.Component {
                 soalAyat={this.state.packSoal}
                 nextSoal={this.handleNextSoal}
                 prevSoal={this.handlePrevSoal}
-                matchPath={matchPath}
-                maxSoal={this.state.theAyats.length}
               />
               <ToggleKunci 
                 showKunci={this.state.showKunci}
@@ -189,7 +188,7 @@ class Modul30Utuh extends React.Component {
                   kunciAyat: this.state.packKunci
                 }}
               >
-              <KunciComponent />            
+                <KunciComponent />            
               </ModulContext.Provider>    
             </Grid.Column>
             <Grid.Column width={7}>
