@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Menu, Icon, Container, Sidebar, Segment } from "semantic-ui-react";
+import { BrowserRouter as Router, NavLink, Route, Redirect  } from "react-router-dom";
+import { Menu, Icon, Container, Sidebar } from "semantic-ui-react";
 import MainApp from './mainApp';
+import juz29utuh from "./juz29utuh";
 
 class App extends React.Component {
   state ={
@@ -17,7 +19,7 @@ class App extends React.Component {
   render() { 
     const sideVisibility = this.state.sideVisibility; 
     return (
-      <div>
+      <Router>
       <Sidebar.Pushable>
               
         <Sidebar 
@@ -31,11 +33,11 @@ class App extends React.Component {
         >
         <Menu.Item onClick={this.handleSidebarHide}>
           <Icon name="sidebar" /> Menu
-        </Menu.Item>
-        <Menu.Item>Juz 30 Utuh</Menu.Item>
-        <Menu.Item>Juz 30 Utuh</Menu.Item>
-        <Menu.Item>Juz 30 Utuh</Menu.Item>
-        <Menu.Item>Juz 30 Utuh</Menu.Item>
+        </Menu.Item>        
+        <NavLink to='/30utuh' className="item">Juz 30 Utuh</NavLink>
+        <NavLink to='/29utuh' className="item">Juz 29 Utuh</NavLink>
+        
+        
         </Sidebar>
         <Sidebar.Pusher dimmed={sideVisibility} >
         <Menu attached='top'>
@@ -45,11 +47,18 @@ class App extends React.Component {
             </Menu.Item>
           </Container>
         </Menu>
-        <MainApp></MainApp>
+        
+        
+        <Route path='/29utuh' component={MainApp} />
+        <Route path='/30utuh' component={MainApp} />
+        <Route exact path='/' render= {() =>
+          <Redirect to='/30utuh' />
+        } />
+        
         </Sidebar.Pusher>
       </Sidebar.Pushable>    
       
-      </div>
+      </Router>
     );
   }
 }

@@ -7,6 +7,7 @@ import SkorComponent from './skor-component';
 import KunciComponent from './kunci-component';
 import ToggleKunci from './toggleKunci';
 import SoalComponent from './soal-component';
+import ModulContext from "./modul-context";
 
 class Modul30Utuh extends React.Component {
   state = {
@@ -156,10 +157,15 @@ class Modul30Utuh extends React.Component {
   }
 
     render() {
+      const matchPath = this.props.matchPath;
+      let judul = 'Juz 30 Utuh';
+      if(matchPath === '/29utuh'){
+        judul = 'Juz 29 Utuh'
+      }
       return(
         <div>
         <Container id="allContainer">  
-          <Header as="h1" textAlign="center">Juz 30 Utuh</Header>
+          <Header as="h1" textAlign="center">{judul}</Header>
           <Grid>
             <Grid.Column width={9}>
               <SoalComponent 
@@ -169,16 +175,22 @@ class Modul30Utuh extends React.Component {
                 soalAyat={this.state.packSoal}
                 nextSoal={this.handleNextSoal}
                 prevSoal={this.handlePrevSoal}
+                matchPath={matchPath}
+                maxSoal={this.state.theAyats.length}
               />
               <ToggleKunci 
                 showKunci={this.state.showKunci}
                 onClick={this.handleToggleKunci}
               />
-              <KunciComponent 
-                showKunci={this.state.showKunci}
-                currentSoal ={this.state.currentSoal}
-                kunciAyat={this.state.packKunci}
-              />                
+              <ModulContext.Provider
+                value={{
+                  showKunci: this.state.showKunci,
+                  currentSoal: this.state.currentSoal,
+                  kunciAyat: this.state.packKunci
+                }}
+              >
+              <KunciComponent />            
+              </ModulContext.Provider>    
             </Grid.Column>
             <Grid.Column width={7}>
               <ActionComponent 

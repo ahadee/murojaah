@@ -8,7 +8,13 @@ class SoalComponent extends Component {
     render() {
         const jumSoal = this.props.jumSoal;
         const currentSoal = this.props.currentSoal;
-        const soalAyat=this.props.soalAyat;        
+        const soalAyat=this.props.soalAyat;
+        const maxSoal = this.props.maxSoal;
+        const matchPath = this.props.matchPath;    
+        let judul = 'JUZZ 30';
+        if(matchPath === '/29utuh'){
+            judul = 'JUZZ 29'
+        }    
         if(soalAyat.length===0){
             return(<div></div>);
         }
@@ -40,10 +46,10 @@ class SoalComponent extends Component {
                 </ButtonGroup>
                 <Segment.Group horizontal>
                     <Segment attached color="red" inverted>
-                        <Header as="h3" textAlign="center">JUZZ 30</Header>
+                        <Header as="h3" textAlign="center">{judul}</Header>
                     </Segment>
                     <Segment attached style={{width: '200%'}}>
-                        <Header color='grey' textAlign='center'>564 Ayat</Header>
+                        <Header color='grey' textAlign='center'>{maxSoal} Ayat</Header>
                     </Segment>
                 </Segment.Group>
                 <Segment attached>
