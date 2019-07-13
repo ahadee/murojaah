@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, NavLink, Route, Redirect  } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route, Redirect, Switch  } from "react-router-dom";
 import { Menu, Icon, Container, Sidebar } from "semantic-ui-react";
 import MainApp from './mainApp';
 import juz29utuh from "./juz29utuh";
@@ -19,7 +19,9 @@ class App extends React.Component {
   render() { 
     const sideVisibility = this.state.sideVisibility; 
     return (
-      <Router>
+      <Router
+        basename="/murojaah/"
+      >
       <Sidebar.Pushable>
               
         <Sidebar 
@@ -51,12 +53,16 @@ class App extends React.Component {
           </Container>
         </Menu>
         
-        
-        <Route path='/29utuh' component={MainApp} />
-        <Route path='/30utuh' component={MainApp} />
-        <Route exact path='/' render= {() =>
-          <Redirect to='/30utuh' />
-        } />
+        <Switch>
+          <Route path='/29utuh' component={MainApp} />
+          <Route path='/30utuh' component={MainApp} />
+          <Route exact path='/' render= {() =>
+            <Redirect to='/30utuh' />
+          } />
+          <Route render={({ location }) => (
+            <Redirect to='/30utuh' />
+          )} />
+        </Switch>
         
         </Sidebar.Pusher>
       </Sidebar.Pushable>    
