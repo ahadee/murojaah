@@ -1,75 +1,74 @@
 import React from 'react';
 import './App.css';
-import data from "./juz30.json";
-import surat from "./tableSurat.json"
-import Layout from "./quiz";
+import { BrowserRouter as Router, NavLink, Route, Redirect, Switch  } from "react-router-dom";
+import { Menu, Icon, Container, Sidebar } from "semantic-ui-react";
+import MainApp from './mainApp';
 
 class App extends React.Component {
-  constructor ()
-  {
-    super();
-    this.state={
-      surat: surat,
-      data: data,
+  state ={
+    sideVisibility: false
+  }
+  handleSidebarShow = () => {
+    console.log("clicked");
+    
+    this.setState({ sideVisibility: true })
+  }
 
-    }    
-    
-    
-  }
-  gabungData2 = () => {
-    const theAyats = JSON.parse(JSON.stringify(this.state.data));
-    let theSurat = JSON.parse(JSON.stringify(this.state.surat));
-    //let count = 0;
-    for(let i=0; i < theAyats.length; i++){
-      for(let j=0; j < theSurat.length; j++){
-        if(theSurat[j].noSurat === theAyats[i].noSurat){
-          Object.assign(theAyats[i], theSurat[j])
-        }  
-      }
-    }
-    //console.log(theAyats);
-    return theAyats;
-    
-    
-  }
-  /*handleAcak = () => {
-    const jumAyat = this.state.data.length;
-    const noAyat = Math.floor(Math.random() * (jumAyat-1));
-    const noKunci = noAyat +1;    
-    this.setState({
-      noAyat: noAyat,
-      noKunci: noKunci,
-    });    
-  };
-  componentDidMount() {
-    this.handleAcak();
-  }*/
-  render() {  
-    //console.log(this.state.data);
-    
-    let theAyats =[];
-    if((theAyats.length===0)){
-      //console.log(this.state.data);
-      theAyats = this.gabungData2();
-      //console.log(this.state.data);
-      //console.log(theAyats);
-      return (
-        <div className="App">        
-          <div>          
-            <Layout              
-              theAyats={theAyats}
-            />                      
-          </div>
-        </div>
-      );
-    }
-    return(
-      <div></div>
+  handleSidebarHide = () => this.setState({ sideVisibility: false })
+  render() { 
+    const sideVisibility = this.state.sideVisibility; 
+    return (
+      <Router
+        basename="/murojaah/"
+      >
+      <Sidebar.Pushable>
+              
+        <Sidebar 
+          as={Menu} 
+          animation='overlay' 
+          inverted 
+          vertical 
+          visible={sideVisibility}           
+          onHide={() => this.handleSidebarHide()}               
+          width='wide'
+        >
+        <Menu.Item onClick={this.handleSidebarHide}>
+          <Icon name="sidebar" /> Menu
+        </Menu.Item>        
+        <NavLink to='/30utuh' className="item">Juz 30 Utuh</NavLink>
+        <NavLink to='/29utuh' className="item">Juz 29 Utuh</NavLink>
+        <Menu.Item >Juz 30 Surat</Menu.Item> 
+        <Menu.Item >Juz 29 Surat</Menu.Item> 
+        <Menu.Item >Sambung Surat</Menu.Item> 
+        
+        
+        </Sidebar>
+        <Sidebar.Pusher dimmed={sideVisibility} >
+        <Menu attached='top'>
+          <Container>
+            <Menu.Item as='a' onClick={this.handleSidebarShow}>
+              <Icon name="sidebar" /> Menu
+            </Menu.Item>
+          </Container>
+        </Menu>
+        
+        <Switch>
+          <Route path='/29utuh' component={MainApp} />
+          <Route path='/30utuh' component={MainApp} />
+          <Route exact path='/' render= {() =>
+            <Redirect to='/30utuh' />
+          } />
+          <Route render={({ location }) => (
+            <Redirect to='/30utuh' />
+          )} />
+        </Switch>
+        
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>    
+      
+      </Router>
     );
-    
-    
   }
 }
 
 export default App;
-

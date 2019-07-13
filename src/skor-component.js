@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Header, Divider, Button } from 'semantic-ui-react';
 
-class SkorComponent extends Component {
-    state = {
-        skorBenar: 0,
-        skorSalah: 0
-    }
+class SkorComponent extends Component {    
     onClickBenar = () => {
         this.props.onClickSkor(true);
     }
@@ -19,7 +15,6 @@ class SkorComponent extends Component {
         const packSoal = this.props.packSoal;
         for(let i=0; i<packSoal.length; i++){
             if(packSoal[i].hasOwnProperty('skor')){
-                console.log(i+ "=> " +packSoal[i].skor)
                 if(packSoal[i].skor===true){
                     totalBenar +=1;
                 } else if(packSoal[i].skor===false){

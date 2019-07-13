@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid} from 'semantic-ui-react'
+import { Container, Grid, Header} from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
 import Waktu from './waktu-component';
 import ActionComponent from './action-component';
@@ -8,9 +8,9 @@ import KunciComponent from './kunci-component';
 import ToggleKunci from './toggleKunci';
 import SoalComponent from './soal-component';
 
-class Quiz extends React.Component {
+class Modul30Utuh extends React.Component {
   state = {
-    theAyats: this.props.theAyats,
+    //theAyats: this.props.theAyats,
     currentSoal: 1,
     packSoal: [],
     packKunci:[],
@@ -22,19 +22,20 @@ class Quiz extends React.Component {
     let tempKeySoal =[];
     let tempPackSoal = [];
     let tempPackKunci = [];
-    for(let i=0; i < this.state.theAyats.length; i++){
+    
+    for(let i=0; i < this.props.theAyats.length; i++){
       tempKeySoal[i]=i;
     } 
-    if(!murojaahUrut){
+    if(murojaahUrut!==true){
       tempKeySoal = this.shuffle(tempKeySoal);
     }    
     tempKeySoal = tempKeySoal.slice(0, this.state.jumSoal);
     for(let i=0; i<tempKeySoal.length; i++){
-      tempPackSoal.push(this.state.theAyats[tempKeySoal[i]]);
-      if(i===this.state.theAyats.length-1){
-        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]]);              
+      tempPackSoal.push(this.props.theAyats[tempKeySoal[i]]);
+      if(i===this.props.theAyats.length-1){
+        tempPackKunci.push(this.props.theAyats[tempKeySoal[i]]);              
       }else{
-        tempPackKunci.push(this.state.theAyats[tempKeySoal[i]+1]);      
+        tempPackKunci.push(this.props.theAyats[tempKeySoal[i]+1]);      
       }
       
     }
@@ -70,11 +71,11 @@ class Quiz extends React.Component {
     const tempPackSoal = this.state.packSoal;
     const tempPackKunci = this.state.packKunci;
     
-    tempPackSoal[currentindex] = this.state.theAyats[noAyat];
-    if(noAyat===this.state.theAyats.length-1){
-      tempPackKunci[currentindex] = this.state.theAyats[noAyat];
+    tempPackSoal[currentindex] = this.props.theAyats[noAyat];
+    if(noAyat===this.props.theAyats.length-1){
+      tempPackKunci[currentindex] = this.props.theAyats[noAyat];
     }else{
-      tempPackKunci[currentindex] = this.state.theAyats[noAyat+1];
+      tempPackKunci[currentindex] = this.props.theAyats[noAyat+1];
     } 
     
 
@@ -85,7 +86,7 @@ class Quiz extends React.Component {
   }
 
   handleAcak = () => {
-    const jumAyat = this.state.theAyats.length;
+    const jumAyat = this.props.theAyats.length;
     const hasilAcak = Math.floor(Math.random() * (jumAyat));
     return hasilAcak;     
   };
@@ -102,7 +103,7 @@ class Quiz extends React.Component {
   };
 
   handleMurojaahUrut = () => {
-    const jumSoal = this.state.theAyats.length;
+    const jumSoal = this.props.theAyats.length;
     this.setState({jumSoal:jumSoal}, () => this.createPackSoal(true));   
   }
 
@@ -112,7 +113,7 @@ class Quiz extends React.Component {
 
   handleSubmitJumSoal = (value) => {    
     this.setState({jumSoal: value, currentSoal: 1}, () =>{
-      this.createPackSoal();
+      this.createPackSoal(false);
     });
     this.tutupJumSoal();
   }; 
@@ -152,14 +153,19 @@ class Quiz extends React.Component {
 
   componentDidMount() {
     //this.handleAcak();
-    console.log('I am about to say hello');
     this.createPackSoal();
   }
 
     render() {
+      const matchPath = this.props.matchPath;
+      let judul = 'Juz 30 Utuh';
+      if(matchPath === '/29utuh'){
+        judul = 'Juz 29 Utuh'
+      }
       return(
         <div>
-        <Container id="allContainer">          
+        <Container id="allContainer">  
+          <Header as="h1" textAlign="center">{judul}</Header>
           <Grid>
             <Grid.Column width={9}>
               <SoalComponent 
@@ -174,11 +180,13 @@ class Quiz extends React.Component {
                 showKunci={this.state.showKunci}
                 onClick={this.handleToggleKunci}
               />
-              <KunciComponent 
-                showKunci={this.state.showKunci}
-                currentSoal ={this.state.currentSoal}
-                kunciAyat={this.state.packKunci}
-              />                
+              
+                <KunciComponent 
+                  showKunci= {this.state.showKunci}
+                  currentSoal= {this.state.currentSoal}
+                  kunciAyat= {this.state.packKunci}
+                />            
+                 
             </Grid.Column>
             <Grid.Column width={7}>
               <ActionComponent 
@@ -201,10 +209,10 @@ class Quiz extends React.Component {
           jumSoal={this.state.jumSoal} 
           onTutupModal={this.tutupJumSoal}
           onSubmitModal={this.handleSubmitJumSoal}
-          maxSoal={this.state.theAyats.length}          
+          maxSoal={this.props.theAyats.length}          
         />
         </div>
       );
     };
 }
-export default Quiz;
+export default Modul30Utuh;

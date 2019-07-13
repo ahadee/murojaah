@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Segment, Header, Grid, GridRow, GridColumn } from 'semantic-ui-react';
 
-class KunciComponent extends Component {
+
+class KunciComponent extends React.Component {
     render() {
         const showKunci = this.props.showKunci;
         const kunciAyat = this.props.kunciAyat;
-        const currentSoal = this.props.currentSoal;
+        const currentSoal = this.props.currentSoal;        
+        
         if((showKunci)&&(kunciAyat.length!==0)){
-            return (            
+            return (
                 <Segment.Group id='Kunci'>
                     <Segment>
                         <Header as='h2' textAlign='center'>Kunci</Header>
@@ -37,15 +39,15 @@ class KunciComponent extends Component {
                             </GridRow>
                         </Grid>
                     </Segment>
-                </Segment.Group>                            
+                </Segment.Group>
+
             );
         } else {
             return (
                 <div></div>
             );
-        }
-        
-    }
+        } 
+    }               
 }
 
 export default KunciComponent;

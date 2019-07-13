@@ -15,7 +15,7 @@ class JumSoalForm extends Component {
     }
     submitJumSoal = () => {
         var value = this.inputJumSoal.current.value;
-        //console.log('is integer ' + Number(value));
+
         if(value === ''){
             this.setState({errorClass:'error'});
             return false

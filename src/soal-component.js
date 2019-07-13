@@ -8,7 +8,8 @@ class SoalComponent extends Component {
     render() {
         const jumSoal = this.props.jumSoal;
         const currentSoal = this.props.currentSoal;
-        const soalAyat=this.props.soalAyat;        
+        const soalAyat=this.props.soalAyat;
+   
         if(soalAyat.length===0){
             return(<div></div>);
         }
@@ -37,17 +38,9 @@ class SoalComponent extends Component {
                         onClick={this.props.nextSoal} 
                         disabled={currentSoal >= jumSoal ? true : false} 
                     />
-                </ButtonGroup>
-                <Segment.Group horizontal>
-                    <Segment attached color="red" inverted>
-                        <Header as="h3" textAlign="center">JUZZ 30</Header>
-                    </Segment>
-                    <Segment attached style={{width: '200%'}}>
-                        <Header color='grey' textAlign='center'>564 Ayat</Header>
-                    </Segment>
-                </Segment.Group>
+                </ButtonGroup>                
                 <Segment attached>
-                    <Grid stackable textAlign='center'>
+                    <Grid doubling textAlign='center' columns={4}>
                         <GridRow>
                             <GridColumn width={5}><p><b className='text'>{soalAyat[currentSoal-1].Nama} [{soalAyat[currentSoal-1].noSurat}]</b></p></GridColumn>
                             <GridColumn width={3}><p>ayat <b className=" text">{soalAyat[currentSoal-1].ayat}</b></p></GridColumn>
