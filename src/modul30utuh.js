@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Header} from 'semantic-ui-react'
+import { Container, Grid} from 'semantic-ui-react'
 import JumSoalForm from "./jum-soal-form";
 import Waktu from './waktu-component';
 import ActionComponent from './action-component';
@@ -156,16 +156,10 @@ class Modul30Utuh extends React.Component {
     this.createPackSoal();
   }
 
-    render() {
-      const matchPath = this.props.matchPath;
-      let judul = 'Juz 30 Utuh';
-      if(matchPath === '/29utuh'){
-        judul = 'Juz 29 Utuh'
-      }
+    render() {      
       return(
         <div>
-        <Container id="allContainer">  
-          <Header as="h1" textAlign="center">{judul}</Header>
+        <Container>            
           <Grid>
             <Grid.Column width={9}>
               <SoalComponent 
@@ -215,4 +209,5 @@ class Modul30Utuh extends React.Component {
       );
     };
 }
+
 export default Modul30Utuh;

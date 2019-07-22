@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Header} from 'semantic-ui-react';
 import data30 from "./juz30.json";
 import data29 from "./juz29.json";
 import surat from "./tableSurat.json"
@@ -38,17 +39,22 @@ class MainApp extends React.Component {
   }
   render() {  
     const matchPath = this.props.match.path;     
+    let judul = 'Juz 30 Utuh';
+    if(matchPath === '/29utuh'){
+      judul = 'Juz 29 Utuh'
+    }    
     let theAyats =[];       
     if((theAyats.length===0)){
       theAyats = this.gabungData2(matchPath);
       return (
         <div className="App">        
-          <div>          
+          <Container id="allContainer">
+            <Header as="h1" textAlign="center">{judul}</Header>          
             <Modul30Utuh              
               theAyats={theAyats}
               matchPath={matchPath}
             />                      
-          </div>
+          </Container> 
         </div>
       );
     }

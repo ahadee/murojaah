@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, NavLink, Route, Redirect, Switch  } from "react-router-dom";
 import { Menu, Icon, Container, Sidebar } from "semantic-ui-react";
 import MainApp from './mainApp';
+import SuratApp from "./suratApp";
 
 class App extends React.Component {
   state ={
@@ -37,8 +38,8 @@ class App extends React.Component {
         </Menu.Item>        
         <NavLink to='/30utuh' className="item">Juz 30 Utuh</NavLink>
         <NavLink to='/29utuh' className="item">Juz 29 Utuh</NavLink>
-        <Menu.Item >Juz 30 Surat</Menu.Item> 
-        <Menu.Item >Juz 29 Surat</Menu.Item> 
+        <NavLink to='/30surat' className="item">Juz 30 Surat</NavLink>
+        <NavLink to='/29surat' className="item">Juz 29 Surat</NavLink>        
         <Menu.Item >Sambung Surat</Menu.Item> 
         
         
@@ -55,6 +56,8 @@ class App extends React.Component {
         <Switch>
           <Route path='/29utuh' component={MainApp} />
           <Route path='/30utuh' component={MainApp} />
+          <Route path='/29surat' component={SuratApp} />
+          <Route path='/30surat' component={SuratApp} />
           <Route exact path='/' render= {() =>
             <Redirect to='/30utuh' />
           } />
