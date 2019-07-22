@@ -13,6 +13,7 @@ class MainApp extends React.Component {
       surat: surat,
       data30: data30,
       data29: data29,
+      theAyats: [],
     }    
     
     
@@ -37,12 +38,35 @@ class MainApp extends React.Component {
     
     
   }
+  updateTheAyats = () => {
+    const matchPath = this.props.match.path; 
+    let testAyats = this.gabungData2(matchPath);    
+    this.setState({
+      theAyats: testAyats
+    })
+
+  }
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.match.path !== prevProps.match.path) {
+      this.updateTheAyats();
+      
+    }
+  }
+  componentDidMount() {
+    //console.log('did Mount');    
+    if(this.state.theAyats.length===0){
+      this.updateTheAyats();
+    }
+
+  }
   render() {  
     const matchPath = this.props.match.path;     
     let judul = 'Juz 30 Utuh';
     if(matchPath === '/29utuh'){
       judul = 'Juz 29 Utuh'
-    }    
+    }  
+    /*  
     let theAyats =[];       
     if((theAyats.length===0)){
       theAyats = this.gabungData2(matchPath);
@@ -57,9 +81,17 @@ class MainApp extends React.Component {
           </Container> 
         </div>
       );
-    }
+    }*/
     return(
-      <div></div>
+      <div className="App">        
+        <Container id="allContainer">
+          <Header as="h1" textAlign="center">{judul}</Header>          
+          <Modul30Utuh              
+            theAyats={this.state.theAyats}
+            matchPath={matchPath}
+          />                      
+        </Container> 
+      </div>
     );
     
     

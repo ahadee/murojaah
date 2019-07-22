@@ -13,6 +13,8 @@ class MainApp extends React.Component {
       surat: surat,
       data30: data30,
       data29: data29,
+      theAyats: [],
+      pilihanSurat: [],
     }    
     
     
@@ -39,7 +41,7 @@ class MainApp extends React.Component {
     
     
   }
-  pickSurat = (matchPath) => {
+  pickSurat = (matchPath) => {    
     let theSurat = JSON.parse(JSON.stringify(this.state.surat));
     let temppilihanSurat = [];
     let pilihanSurat = [];
@@ -50,6 +52,8 @@ class MainApp extends React.Component {
           pilihanSurat.push({
             key: theSurat[i].noSurat, 
             value: i, 
+            awalayat: theSurat[i].awalAyat,
+            jumayat: theSurat[i].jumAyat,
             text: '[ '+theSurat[i].noSurat+' ] '+theSurat[i].Nama,
           })
         }
@@ -59,62 +63,83 @@ class MainApp extends React.Component {
           pilihanSurat.push({
             key: theSurat[i].noSurat, 
             value: i, 
+            awalayat: theSurat[i].awalAyat,
+            jumayat: theSurat[i].jumAyat,
             text: '[ '+theSurat[i].noSurat+' ] '+theSurat[i].Nama,
-          })            
+          })          
         }
       }
 
-    }
-    
-    /*for(let i=0; i<temppilihanSurat.length; i++){      
-      pilihanSurat.push({
-        key: temppilihanSurat[i].noSurat, 
-        value: temppilihanSurat[i].noSurat, 
-        text: '[ '+temppilihanSurat[i].noSurat+' ] '+temppilihanSurat[i].Nama,
-        awalayat: temppilihanSurat[i].awalAyat,
-        akhirayat: temppilihanSurat[i].akhirAyat,
-        jumayat: temppilihanSurat[i].jumAyat
-      })
-    } */   
+    }  
     
     return pilihanSurat
   }
   
   handleSuratChange = (value) => {
     console.log(value);
+    const suratInfo = this.state.surat[value];
+    console.log(suratInfo);
+    console.log(suratInfo.awalAyat-1 + ' => ' + suratInfo.jumAyat);
+    const matchPath = this.props.match.path;  
+    const pilihanSurat = this.pickSurat(matchPath);  
+    console.log(pilihanSurat);
+    let testAyats = [];
+    testAyats = this.gabungDataSurat(matchPath, suratInfo.awalAyat-1,suratInfo.akhirAyat);
+    this.setState({
+      theAyats: testAyats
+    })
+    
+    
     
     //this.gabungDataSurat(this.props.match.path, pilihanSurat[0].awalayat-1,pilihanSurat[0].jumayat);    
+  }
+  updateMatchPath = () => {
+    const matchPath = this.props.match.path;  
+    const pilihanSurat = this.pickSurat(matchPath);      
+    if(this.state.theAyats.length===0){
+      let testAyats = [];
+      testAyats = this.gabungDataSurat(matchPath, pilihanSurat[0].awalayat-1,pilihanSurat[0].jumayat);
+      this.setState({
+        theAyats: testAyats,
+        pilihanSurat: pilihanSurat,
+      })
+    }
+
+  }
+  componentDidUpdate(prevProps){
+    // Typical usage (don't forget to compare props):
+    if (this.props.match.path !== prevProps.match.path) {
+      console.log('ganti matchPath')
+      this.updateMatchPath();
+      
+    }
+  }
+  componentDidMount() {  
+    this.updateMatchPath();
   }
 
   render() { 
     const matchPath = this.props.match.path;  
-    const pilihanSurat = this.pickSurat(matchPath);
-    console.log(pilihanSurat);
+    const pilihanSurat = this.pickSurat(matchPath);    
     
     let judul = 'Juz 30 Surat';
     if(matchPath === '/29surat'){
       judul = 'Juz 29 Surat'
-    }    
-    let theAyats =[];       
-    if((theAyats.length===0)){
-      theAyats = this.gabungDataSurat(matchPath, pilihanSurat[0].awalayat-1,pilihanSurat[0].jumayat);
-      return (
-        <div className="App">        
+    }   
+    return(
+      <div className="App">        
           <Container id="allContainer">
             <Header as="h1" textAlign="center">{judul}</Header>   
             <PilihSurat 
               pilihanSurat={pilihanSurat}
+              handleSuratChange={this.handleSuratChange}
             />       
             <Modul30Utuh              
-              theAyats={theAyats}
+              theAyats={this.state.theAyats}
               matchPath={matchPath}
-            />                      
+            />
           </Container> 
         </div>
-      );
-    }
-    return(
-      <div></div>
     );
     
     
@@ -122,9 +147,22 @@ class MainApp extends React.Component {
 }
 
 class PilihSurat extends React.Component {
+  state = {
+    suratTerpilih: this.props.pilihanSurat[0]
+  }
   handleChange = (e, { value }) => {
-    console.log(value);
-    //this.props.handleChange(value);
+    this.setState({
+      suratTerpilih: this.props.pilihanSurat[value]
+    })
+    this.props.handleSuratChange(value);
+    
+  }
+  componentDidUpdate(prevProps){
+    // Typical usage (don't forget to compare props):
+    if (this.props.pilihanSurat != prevProps.pilihanSurat) {
+      console.log("updated");
+      
+    }
   }
   render() {
     const pilihanSurat = this.props.pilihanSurat
@@ -136,7 +174,7 @@ class PilihSurat extends React.Component {
             <label className="text"><b>Pilih Surat</b></label>
             <Select 
               placeholder='Select your country' 
-              options={pilihanSurat} 
+              options={this.props.pilihanSurat}                             
               defaultValue={pilihanSurat[0].value}
               selectOnNavigation={false} 
               onChange={this.handleChange}

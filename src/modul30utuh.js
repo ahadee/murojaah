@@ -151,6 +151,14 @@ class Modul30Utuh extends React.Component {
     this.handleNextSoal();
   }
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.theAyats !== prevProps.theAyats) {
+      console.log(this.props.theAyats)
+      this.createPackSoal();
+    }
+  }
+
   componentDidMount() {
     //this.handleAcak();
     this.createPackSoal();
@@ -179,7 +187,7 @@ class Modul30Utuh extends React.Component {
                   showKunci= {this.state.showKunci}
                   currentSoal= {this.state.currentSoal}
                   kunciAyat= {this.state.packKunci}
-                />            
+              />
                  
             </Grid.Column>
             <Grid.Column width={7}>
@@ -189,7 +197,7 @@ class Modul30Utuh extends React.Component {
                 onAcakAll={this.createPackSoal}
                 onResetSoal={this.resetSoal}
               />
-              <Waktu />
+              {/*<Waktu />*/}
               <SkorComponent                 
                 onClickSkor ={this.handleClickSkor}
                 jumSoal = {this.state.jumSoal}

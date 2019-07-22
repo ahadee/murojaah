@@ -36,10 +36,10 @@ class App extends React.Component {
         <Menu.Item onClick={this.handleSidebarHide}>
           <Icon name="sidebar" /> Menu
         </Menu.Item>        
-        <NavLink to='/30utuh' className="item">Juz 30 Utuh</NavLink>
-        <NavLink to='/29utuh' className="item">Juz 29 Utuh</NavLink>
-        <NavLink to='/30surat' className="item">Juz 30 Surat</NavLink>
-        <NavLink to='/29surat' className="item">Juz 29 Surat</NavLink>        
+        <NavLink to='/30utuh' className="item" onClick={this.handleSidebarHide}>Juz 30 Utuh</NavLink>
+        <NavLink to='/29utuh' className="item" onClick={this.handleSidebarHide}>Juz 29 Utuh</NavLink>
+        <NavLink to='/30surat' className="item" onClick={this.handleSidebarHide}>Juz 30 Surat</NavLink>
+        <NavLink to='/29surat' className="item" onClick={this.handleSidebarHide}>Juz 29 Surat</NavLink>        
         <Menu.Item >Sambung Surat</Menu.Item> 
         
         
