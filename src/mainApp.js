@@ -3,7 +3,7 @@ import { Container, Header} from 'semantic-ui-react';
 import data30 from "./juz30.json";
 import data29 from "./juz29.json";
 import surat from "./tableSurat.json"
-import Modul30Utuh from "./modul30utuh";
+import ModulQuiz from "./modul-quiz";
 
 class MainApp extends React.Component {
   constructor ()
@@ -86,7 +86,7 @@ class MainApp extends React.Component {
       <div className="App">        
         <Container id="allContainer">
           <Header as="h1" textAlign="center">{judul}</Header>          
-          <Modul30Utuh              
+          <ModulQuiz              
             theAyats={this.state.theAyats}
             matchPath={matchPath}
           />                      

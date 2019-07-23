@@ -3,7 +3,7 @@ import { Container, Header, Segment, Form, Label, Select} from 'semantic-ui-reac
 import data30 from "./juz30.json";
 import data29 from "./juz29.json";
 import surat from "./tableSurat.json"
-import Modul30Utuh from "./modul30utuh";
+import ModulQuiz from "./modul-quiz"
 
 class MainApp extends React.Component {
   constructor ()
@@ -129,7 +129,7 @@ class MainApp extends React.Component {
               pilihanSurat={pilihanSurat}
               handleSuratChange={this.handleSuratChange}
             />       
-            <Modul30Utuh              
+            <ModulQuiz              
               theAyats={this.state.theAyats}
               matchPath={matchPath}
             />

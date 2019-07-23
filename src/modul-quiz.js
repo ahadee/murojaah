@@ -8,7 +8,7 @@ import KunciComponent from './kunci-component';
 import ToggleKunci from './toggleKunci';
 import SoalComponent from './soal-component';
 
-class Modul30Utuh extends React.Component {
+class ModulQuiz extends React.Component {
   state = {
     //theAyats: this.props.theAyats,
     currentSoal: 1,
@@ -228,4 +228,4 @@ class Modul30Utuh extends React.Component {
     };
 }
 
-export default Modul30Utuh;
+export default ModulQuiz;
