@@ -75,14 +75,9 @@ class MainApp extends React.Component {
     return pilihanSurat
   }
   
-  handleSuratChange = (value) => {
-    console.log(value);
+  handleSuratChange = (value) => {    
     const suratInfo = this.state.surat[value];
-    console.log(suratInfo);
-    console.log(suratInfo.awalAyat-1 + ' => ' + suratInfo.jumAyat);
     const matchPath = this.props.match.path;  
-    const pilihanSurat = this.pickSurat(matchPath);  
-    console.log(pilihanSurat);
     let testAyats = [];
     testAyats = this.gabungDataSurat(matchPath, suratInfo.awalAyat-1,suratInfo.akhirAyat);
     this.setState({
@@ -159,7 +154,7 @@ class PilihSurat extends React.Component {
   }
   componentDidUpdate(prevProps){
     // Typical usage (don't forget to compare props):
-    if (this.props.pilihanSurat != prevProps.pilihanSurat) {
+    if (this.props.pilihanSurat !== prevProps.pilihanSurat) {
       console.log("updated");
       
     }

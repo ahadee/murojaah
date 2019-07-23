@@ -8,7 +8,7 @@ class Waktu extends Component {
         elapsed: 0
     }
     componentDidMount() {
-        this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 50);
+        this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 500);
     }
 
     componentWillUnmount() {

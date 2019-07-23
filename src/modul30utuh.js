@@ -155,6 +155,16 @@ class Modul30Utuh extends React.Component {
     // Typical usage (don't forget to compare props):
     if (this.props.theAyats !== prevProps.theAyats) {
       console.log(this.props.theAyats)
+      console.log('theAyat length: ' + this.props.theAyats.length);
+      console.log('jumsoal: ' + this.state.jumSoal);
+      
+      if(this.props.theAyats.length < this.state.jumSoal){
+        console.log('Ganti jum soal');
+        
+        this.setState({
+          jumSoal: this.props.theAyats.length,
+        })
+      }
       this.createPackSoal();
     }
   }
@@ -197,7 +207,7 @@ class Modul30Utuh extends React.Component {
                 onAcakAll={this.createPackSoal}
                 onResetSoal={this.resetSoal}
               />
-              {/*<Waktu />*/}
+              <Waktu />
               <SkorComponent                 
                 onClickSkor ={this.handleClickSkor}
                 jumSoal = {this.state.jumSoal}
