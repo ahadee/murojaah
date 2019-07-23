@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Segment, Form, Label, Select} from 'semantic-ui-react';
+import { Container, Header, Segment, Form, Select} from 'semantic-ui-react';
 import data30 from "./juz30.json";
 import data29 from "./juz29.json";
 import surat from "./tableSurat.json"
